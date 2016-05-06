@@ -1,0 +1,995 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<taxonomy xmlns="http://agora.opengov.gr/schema/common-0.1"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        name="country"
+>
+
+	<item id="GR">
+		<label>Ελλάδα</label>
+	</item>
+
+	<item id="AT">
+		<label>Αυστρία</label>
+	</item>
+
+	<item id="BE">
+		<label>Βέλγιο</label>
+	</item>
+
+	<item id="BG">
+		<label>Βουλγαρία</label>
+	</item>
+
+	<item id="CY">
+		<label>Κύπρος</label>
+	</item>
+
+	<item id="CZ">
+		<label>Τσεχία</label>
+	</item>
+
+	<item id="DK">
+		<label>Δανία</label>
+	</item>
+
+	<item id="EE">
+		<label>Εσθονία</label>
+	</item>
+
+	<item id="FI">
+		<label>Φινλανδία</label>
+	</item>
+
+	<item id="FR">
+		<label>Γαλλία</label>
+	</item>
+
+	<item id="DE">
+		<label>Γερμανία</label>
+	</item>
+
+	<item id="HU">
+		<label>Ουγγαρία</label>
+	</item>
+
+	<item id="IE">
+		<label>Ιρλανδία</label>
+	</item>
+
+	<item id="IT">
+		<label>Ιταλία</label>
+	</item>
+
+	<item id="LV">
+		<label>Λετονία</label>
+	</item>
+
+	<item id="LT">
+		<label>Λιθουανία</label>
+	</item>
+
+	<item id="LU">
+		<label>Λουξεμβούργο</label>
+	</item>
+
+	<item id="MT">
+		<label>Μάλτα</label>
+	</item>
+
+	<item id="NL">
+		<label>Κάτω Χώρες</label>
+	</item>
+
+	<item id="PL">
+		<label>Πολωνία</label>
+	</item>
+
+	<item id="PT">
+		<label>Πορτογαλία</label>
+	</item>
+
+	<item id="RO">
+		<label>Ρουμανία</label>
+	</item>
+
+	<item id="SK">
+		<label>Σλοβακία</label>
+	</item>
+
+	<item id="SI">
+		<label>Σλοβενία</label>
+	</item>
+
+	<item id="ES">
+		<label>Ισπανία</label>
+	</item>
+
+	<item id="SE">
+		<label>Σουηδία</label>
+	</item>
+
+	<item id="GB">
+		<label>Ηνωμένο Βασίλειο</label>
+	</item>
+
+	<item id="BL">
+		<label>Άγιος Βαρθολομαίος</label>
+	</item>
+
+	<item id="MF">
+		<label>Άγιος Μαρτίνος</label>
+	</item>
+
+	<item id="AX">
+		<label>Άαλαντ</label>
+	</item>
+
+	<item id="VC">
+		<label>Άγιος Βικέντιος</label>
+	</item>
+
+	<item id="SM">
+		<label>Άγιος Μαρίνος</label>
+	</item>
+
+	<item id="PM">
+		<label>Άγιος Πέτρος και Μικελόν</label>
+	</item>
+
+	<item id="KN">
+		<label>Άγιος Χριστόφορος και Νέβις</label>
+	</item>
+
+	<item id="AZ">
+		<label>Αζερμπαϊτζάν</label>
+	</item>
+
+	<item id="EG">
+		<label>Αίγυπτος</label>
+	</item>
+
+	<item id="ET">
+		<label>Αιθιοπία</label>
+	</item>
+
+	<item id="HT">
+		<label>Αϊτή</label>
+	</item>
+
+	<item id="CI">
+		<label>Ακτή Ελεφαντοστού</label>
+	</item>
+
+	<item id="AL">
+		<label>Αλβανία</label>
+	</item>
+
+	<item id="DZ">
+		<label>Αλγερία</label>
+	</item>
+
+	<item id="AS">
+		<label>Αμερικανική Σαμόα</label>
+	</item>
+
+	<item id="TL">
+		<label>Ανατολικό Τιμόρ</label>
+	</item>
+
+	<item id="AO">
+		<label>Ανγκόλα</label>
+	</item>
+
+	<item id="AI">
+		<label>Ανγκουίλα</label>
+	</item>
+
+	<item id="AD">
+		<label>Ανδόρρα</label>
+	</item>
+
+	<item id="AQ">
+		<label>Ανταρκτική</label>
+	</item>
+
+	<item id="AG">
+		<label>Αντίγκουα και Μπαρμπούντα</label>
+	</item>
+
+	<item id="AR">
+		<label>Αργεντινή</label>
+	</item>
+
+	<item id="AM">
+		<label>Αρμενία</label>
+	</item>
+
+	<item id="AW">
+		<label>Αρούμπα</label>
+	</item>
+
+	<item id="AU">
+		<label>Αυστραλία</label>
+	</item>
+
+	<item id="AF">
+		<label>Αφγανιστάν</label>
+	</item>
+
+	<item id="VU">
+		<label>Βανουάτου</label>
+	</item>
+
+	<item id="VA">
+		<label>Βατικανό</label>
+	</item>
+
+	<item id="VE">
+		<label>Βενεζουέλα</label>
+	</item>
+
+	<item id="BM">
+		<label>Βερμούδες</label>
+	</item>
+
+	<item id="VN">
+		<label>Βιετνάμ</label>
+	</item>
+
+	<item id="MM">
+		<label>Βιρμανία</label>
+	</item>
+
+	<item id="BO">
+		<label>Βολιβία</label>
+	</item>
+
+	<item id="KP">
+		<label>Βόρεια Κορέα</label>
+	</item>
+
+	<item id="BA">
+		<label>Βοσνία-Ερζεγοβίνη</label>
+	</item>
+
+	<item id="BR">
+		<label>Βραζιλία</label>
+	</item>
+
+	<item id="IO">
+		<label>Βρετανικό Έδαφος Ινδικού Ωκεανού</label>
+	</item>
+
+	<item id="VG">
+		<label>Βρετανικές Παρθένοι Νήσοι</label>
+	</item>
+
+	<item id="TF">
+		<label>Γαλλικά νότια και ανταρκτικά εδάφη</label>
+	</item>
+
+	<item id="GF">
+		<label>Γαλλική Γουιάνα</label>
+	</item>
+
+	<item id="PF">
+		<label>Γαλλική Πολυνησία</label>
+	</item>
+
+	<item id="GE">
+		<label>Γεωργία</label>
+	</item>
+
+	<item id="GI">
+		<label>Γιβραλτάρ</label>
+	</item>
+
+	<item id="GM">
+		<label>Γκάμπια</label>
+	</item>
+
+	<item id="GA">
+		<label>Γκαμπόν</label>
+	</item>
+
+	<item id="GH">
+		<label>Γκάνα</label>
+	</item>
+
+	<item id="GG">
+		<label>Γκέρνσεϋ</label>
+	</item>
+
+	<item id="GU">
+		<label>Γκουάμ</label>
+	</item>
+
+	<item id="GP">
+		<label>Γουαδελούπη</label>
+	</item>
+
+	<item id="GT">
+		<label>Γουατεμάλα</label>
+	</item>
+
+	<item id="GY">
+		<label>Γουιάνα</label>
+	</item>
+
+	<item id="GN">
+		<label>Γουινέα</label>
+	</item>
+
+	<item id="GW">
+		<label>Γουινέα-Μπισσάου</label>
+	</item>
+
+	<item id="GD">
+		<label>Γρενάδα</label>
+	</item>
+
+	<item id="GL">
+		<label>Γροιλανδία</label>
+	</item>
+
+	<item id="CF">
+		<label>Κεντροαφρικανική Δημοκρατία</label>
+	</item>
+
+	<item id="DO">
+		<label>Δομινικανή Δημοκρατία</label>
+	</item>
+
+	<item id="PS">
+		<label>Δυτική Όχθη</label>
+	</item>
+
+	<item id="EH">
+		<label>Δυτική Σαχάρα</label>
+	</item>
+
+	<item id="SV">
+		<label>Ελ Σαλβαδόρ</label>
+	</item>
+
+	<item id="CH">
+		<label>Ελβετία</label>
+	</item>
+
+	<item id="ER">
+		<label>Ερυθραία</label>
+	</item>
+
+	<item id="ZM">
+		<label>Ζάμπια</label>
+	</item>
+
+	<item id="ZW">
+		<label>Ζιμπάμπουε</label>
+	</item>
+
+	<item id="AE">
+		<label>Ηνωμένα Αραβικά Εμιράτα</label>
+	</item>
+
+	<item id="US">
+		<label>Ηνωμένες Πολιτείες</label>
+	</item>
+
+	<item id="UM">
+		<label>Ηνωμένες Πολιτείες - Μικρά απομακρυσμένα νησιά</label>
+	</item>
+
+	<item id="JP">
+		<label>Ιαπωνία</label>
+	</item>
+
+	<item id="IN">
+		<label>Ινδία</label>
+	</item>
+
+	<item id="ID">
+		<label>Ινδονησία</label>
+	</item>
+
+	<item id="JO">
+		<label>Ιορδανία</label>
+	</item>
+
+	<item id="IQ">
+		<label>Ιράκ</label>
+	</item>
+
+	<item id="IR">
+		<label>Ιράν</label>
+	</item>
+
+	<item id="GQ">
+		<label>Ισημερινή Γουινέα</label>
+	</item>
+
+	<item id="EC">
+		<label>Ισημερινός</label>
+	</item>
+
+	<item id="IS">
+		<label>Ισλανδία</label>
+	</item>
+
+	<item id="IL">
+		<label>Ισραήλ</label>
+	</item>
+
+	<item id="KZ">
+		<label>Καζακστάν</label>
+	</item>
+
+	<item id="CM">
+		<label>Καμερούν</label>
+	</item>
+
+	<item id="KH">
+		<label>Καμπότζη</label>
+	</item>
+
+	<item id="CA">
+		<label>Καναδάς</label>
+	</item>
+
+	<item id="QA">
+		<label>Κατάρ</label>
+	</item>
+
+	<item id="KE">
+		<label>Κένυα</label>
+	</item>
+
+	<item id="CN">
+		<label>Κίνα</label>
+	</item>
+
+	<item id="KG">
+		<label>Κιργιζιστάν</label>
+	</item>
+
+	<item id="KI">
+		<label>Κιριμπάτι</label>
+	</item>
+
+	<item id="CG">
+		<label>Κογκό</label>
+	</item>
+
+	<item id="CO">
+		<label>Κολομβία</label>
+	</item>
+
+	<item id="KM">
+		<label>Κομόρες</label>
+	</item>
+
+	<item id="CR">
+		<label>Κόστα Ρίκα</label>
+	</item>
+
+	<item id="CU">
+		<label>Κούβα</label>
+	</item>
+
+	<item id="KW">
+		<label>Κουβέιτ</label>
+	</item>
+
+	<item id="HR">
+		<label>Κροατία</label>
+	</item>
+
+	<item id="CD">
+		<label>Λαϊκή Δημοκρατία του Κογκό</label>
+	</item>
+
+	<item id="LA">
+		<label>Λάος</label>
+	</item>
+
+	<item id="LS">
+		<label>Λεσότο</label>
+	</item>
+
+	<item id="BY">
+		<label>Λευκορωσία</label>
+	</item>
+
+	<item id="LB">
+		<label>Λίβανος</label>
+	</item>
+
+	<item id="LR">
+		<label>Λιβερία</label>
+	</item>
+
+	<item id="LY">
+		<label>Λιβύη</label>
+	</item>
+
+	<item id="LI">
+		<label>Λιχτενστάιν</label>
+	</item>
+
+	<item id="YT">
+		<label>Μαγιότ</label>
+	</item>
+
+	<item id="MG">
+		<label>Μαδαγασκάρη</label>
+	</item>
+
+	<item id="MO">
+		<label>Μακάο</label>
+	</item>
+
+	<item id="MY">
+		<label>Μαλαισία</label>
+	</item>
+
+	<item id="MW">
+		<label>Μαλάουι</label>
+	</item>
+
+	<item id="MV">
+		<label>Μαλδίβες</label>
+	</item>
+
+	<item id="ML">
+		<label>Μάλι</label>
+	</item>
+
+	<item id="MA">
+		<label>Μαρόκο</label>
+	</item>
+
+	<item id="MQ">
+		<label>Μαρτινίκα</label>
+	</item>
+
+	<item id="MU">
+		<label>Μαυρίκιος</label>
+	</item>
+
+	<item id="MR">
+		<label>Μαυριτανία</label>
+	</item>
+
+	<item id="ME">
+		<label>Μαυροβούνιο</label>
+	</item>
+
+	<item id="MX">
+		<label>Μεξικό</label>
+	</item>
+
+	<item id="MN">
+		<label>Μογγολία</label>
+	</item>
+
+	<item id="MZ">
+		<label>Μοζαμβίκη</label>
+	</item>
+
+	<item id="MD">
+		<label>Μολδαβία</label>
+	</item>
+
+	<item id="MC">
+		<label>Μονακό</label>
+	</item>
+
+	<item id="MS">
+		<label>Μοντσερράτ</label>
+	</item>
+
+	<item id="BD">
+		<label>Μπαγκλαντές</label>
+	</item>
+
+	<item id="BB">
+		<label>Μπαρμπάντος</label>
+	</item>
+
+	<item id="BS">
+		<label>Μπαχάμες</label>
+	</item>
+
+	<item id="BH">
+		<label>Μπαχρέιν</label>
+	</item>
+
+	<item id="BZ">
+		<label>Μπελίζε</label>
+	</item>
+
+	<item id="BJ">
+		<label>Μπενίν</label>
+	</item>
+
+	<item id="BW">
+		<label>Μποτσουάνα</label>
+	</item>
+
+	<item id="BF">
+		<label>Μπουρκίνα Φάσο</label>
+	</item>
+
+	<item id="BI">
+		<label>Μπουρούντι</label>
+	</item>
+
+	<item id="BT">
+		<label>Μπουτάν</label>
+	</item>
+
+	<item id="BN">
+		<label>Μπρουνέι</label>
+	</item>
+
+	<item id="NA">
+		<label>Ναμίμπια</label>
+	</item>
+
+	<item id="NR">
+		<label>Ναουρού</label>
+	</item>
+
+	<item id="NZ">
+		<label>Νέα Ζηλανδία</label>
+	</item>
+
+	<item id="NC">
+		<label>Νέα Καληδονία</label>
+	</item>
+
+	<item id="NP">
+		<label>Νεπάλ</label>
+	</item>
+
+	<item id="BV">
+		<label>Μπουβέ</label>
+	</item>
+
+	<item id="NF">
+		<label>Νησί Νόρφολκ</label>
+	</item>
+
+	<item id="CX">
+		<label>Νησί των Χριστουγέννων</label>
+	</item>
+
+	<item id="CC">
+		<label>Νησιά Κόκος (Keeling)</label>
+	</item>
+
+	<item id="AX">
+		<label>Ώλαντ</label>
+	</item>
+
+	<item id="MP">
+		<label>Βόρειες Μαριάνες Νήσοι</label>
+	</item>
+
+	<item id="MH">
+		<label>Νήσοι Μάρσαλ</label>
+	</item>
+
+	<item id="PN">
+		<label>Νησιά Πίτκερν</label>
+	</item>
+
+	<item id="KY">
+		<label>Νήσοι Καίυμαν</label>
+	</item>
+
+	<item id="CK">
+		<label>Νήσοι Κουκ</label>
+	</item>
+
+	<item id="SB">
+		<label>Νήσοι του Σολομώντος</label>
+	</item>
+
+	<item id="FO">
+		<label>Νήσοι Φερόες</label>
+	</item>
+
+	<item id="FK">
+		<label>Νήσοι Φώκλαντ</label>
+	</item>
+
+	<item id="IM">
+		<label>Νήσος Μαν</label>
+	</item>
+
+	<item id="HM">
+		<label>Νήσοι Χερντ και Μακντόναλντ</label>
+	</item>
+
+	<item id="NE">
+		<label>Νίγηρας</label>
+	</item>
+
+	<item id="NG">
+		<label>Νιγηρία</label>
+	</item>
+
+	<item id="NI">
+		<label>Νικαράγουα</label>
+	</item>
+
+	<item id="NU">
+		<label>Νιούε</label>
+	</item>
+
+	<item id="NO">
+		<label>Νορβηγία</label>
+	</item>
+
+	<item id="ZA">
+		<label>Νότια Αφρική</label>
+	</item>
+
+	<item id="GS">
+		<label>Νήσοι Νότια Γεωργία και Νότιες Σάντουιτς</label>
+	</item>
+
+	<item id="KR">
+		<label>Νότια Κορέα</label>
+	</item>
+
+	<item id="DM">
+		<label>Ντομίνικα</label>
+	</item>
+
+	<item id="AN">
+		<label>Ολλανδικές Αντίλλες</label>
+	</item>
+
+	<item id="OM">
+		<label>Ομάν</label>
+	</item>
+
+	<item id="FM">
+		<label>Ομόσπονδα Κράτη της Μικρονησίας</label>
+	</item>
+
+	<item id="HN">
+		<label>Ονδούρα</label>
+	</item>
+
+	<item id="WF">
+		<label>Ουάλις και Φουτούνα</label>
+	</item>
+
+	<item id="UG">
+		<label>Ουγκάντα</label>
+	</item>
+
+	<item id="UZ">
+		<label>Ουζμπεκιστάν</label>
+	</item>
+
+	<item id="UA">
+		<label>Ουκρανία</label>
+	</item>
+
+	<item id="UY">
+		<label>Ουρουγουάη</label>
+	</item>
+
+	<item id="PK">
+		<label>Πακιστάν</label>
+	</item>
+
+	<item id="PW">
+		<label>Παλάου</label>
+	</item>
+
+	<item id="PA">
+		<label>Παναμάς</label>
+	</item>
+
+	<item id="PG">
+		<label>Παπούα - Νέα Γουϊνέα</label>
+	</item>
+
+	<item id="PY">
+		<label>Παραγουάη</label>
+	</item>
+
+	<item id="VI">
+		<label>Αμερικανικές Παρθένοι Νήσοι</label>
+	</item>
+
+	<item id="MK">
+		<label>ΠΓΔΜ</label>
+	</item>
+
+	<item id="PE">
+		<label>Περού</label>
+	</item>
+
+	<item id="PR">
+		<label>Πουέρτο Ρίκο</label>
+	</item>
+
+	<item id="CV">
+		<label>Πράσινο Ακρωτήρι</label>
+	</item>
+
+	<item id="RE">
+		<label>Ρεϋνιόν</label>
+	</item>
+
+	<item id="RW">
+		<label>Ρουάντα</label>
+	</item>
+
+	<item id="RU">
+		<label>Ρωσία</label>
+	</item>
+
+	<item id="WS">
+		<label>Σαμόα</label>
+	</item>
+
+	<item id="SH">
+		<label>Νήσος Αγίας Ελένης</label>
+	</item>
+
+	<item id="LC">
+		<label>Σάντα Λουτσία</label>
+	</item>
+
+	<item id="ST">
+		<label>Σάο Τομέ και Πρίνσιπε</label>
+	</item>
+
+	<item id="SA">
+		<label>Σαουδική Αραβία</label>
+	</item>
+
+	<item id="SJ">
+		<label>Σβάλμπαρντ</label>
+	</item>
+
+	<item id="SN">
+		<label>Σενεγάλη</label>
+	</item>
+
+	<item id="RS">
+		<label>Σερβία</label>
+	</item>
+
+	<item id="SC">
+		<label>Σεϋχέλλες</label>
+	</item>
+
+	<item id="SL">
+		<label>Σιέρα Λεόνε</label>
+	</item>
+
+	<item id="SG">
+		<label>Σιγκαπούρη</label>
+	</item>
+
+	<item id="SO">
+		<label>Σομαλία</label>
+	</item>
+
+	<item id="SZ">
+		<label>Σουαζηλάνδη</label>
+	</item>
+
+	<item id="SD">
+		<label>Σουδάν</label>
+	</item>
+
+	<item id="SR">
+		<label>Σουρινάμ</label>
+	</item>
+
+	<item id="LK">
+		<label>Σρι Λάνκα</label>
+	</item>
+
+	<item id="SY">
+		<label>Συρία</label>
+	</item>
+
+	<item id="TW">
+		<label>Ταϊβάν</label>
+	</item>
+
+	<item id="TH">
+		<label>Ταϊλάνδη</label>
+	</item>
+
+	<item id="TZ">
+		<label>Τανζανία</label>
+	</item>
+
+	<item id="TJ">
+		<label>Τατζικιστάν</label>
+	</item>
+
+	<item id="JM">
+		<label>Τζαμάικα</label>
+	</item>
+
+	<item id="JE">
+		<label>Τζέρσεϋ</label>
+	</item>
+
+	<item id="DJ">
+		<label>Τζιμπουτί</label>
+	</item>
+
+	<item id="TO">
+		<label>Τόγκα</label>
+	</item>
+
+	<item id="TG">
+		<label>Τόγκο</label>
+	</item>
+
+	<item id="TK">
+		<label>Τοκελάου</label>
+	</item>
+
+	<item id="TV">
+		<label>Τουβαλού</label>
+	</item>
+
+	<item id="TR">
+		<label>Τουρκία</label>
+	</item>
+
+	<item id="TM">
+		<label>Τουρκμενιστάν</label>
+	</item>
+
+	<item id="TC">
+		<label>Τερκ και Κάικος</label>
+	</item>
+
+	<item id="TT">
+		<label>Τρινιντάντ και Τομπάγκο</label>
+	</item>
+
+	<item id="TD">
+		<label>Τσαντ</label>
+	</item>
+
+	<item id="TN">
+		<label>Τυνησία</label>
+	</item>
+
+	<item id="YE">
+		<label>Υεμένη</label>
+	</item>
+
+	<item id="PH">
+		<label>Φιλιππίνες</label>
+	</item>
+
+	<item id="FJ">
+		<label>Φίτζι</label>
+	</item>
+
+	<item id="CL">
+		<label>Χιλή</label>
+	</item>
+
+	<item id="HK">
+		<label>Χονγκ Κονγκ</label>
+	</item>
+
+</taxonomy>

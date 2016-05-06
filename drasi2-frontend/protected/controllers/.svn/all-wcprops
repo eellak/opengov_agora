@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/controllers
+END
+ContractitemController.php
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/controllers/ContractitemController.php
+END
+ContractController.php
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/controllers/ContractController.php
+END
+ContractidsController.php
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/controllers/ContractidsController.php
+END
+ProcurmentidsController.php
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/controllers/ProcurmentidsController.php
+END
+PaymentsController.php
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/controllers/PaymentsController.php
+END
+NoticeidsController.php
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/controllers/NoticeidsController.php
+END
+ProcurementController.php
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/controllers/ProcurementController.php
+END
+SiteController.php
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/controllers/SiteController.php
+END
+MyController.php
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/controllers/MyController.php
+END
+CpvcodesController.php
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/controllers/CpvcodesController.php
+END
+OrganizationsController.php
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/controllers/OrganizationsController.php
+END
+RfpController.php
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/controllers/RfpController.php
+END
+SignersController.php
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/controllers/SignersController.php
+END

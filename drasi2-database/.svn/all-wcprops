@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-database
+END
+drasi2_only_structure.sql
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-database/drasi2_only_structure.sql
+END
+drasi2_with_data.sql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-database/drasi2_with_data.sql
+END
+apofaseis.sql
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-database/apofaseis.sql
+END

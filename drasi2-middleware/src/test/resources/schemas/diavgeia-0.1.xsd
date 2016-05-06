@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="1.0"
+	targetNamespace="http://agora.opengov.gr/schema/diavgeia-0.1" xmlns:tns="http://agora.opengov.gr/schema/diavgeia-0.1"
+	xmlns:xmime="http://www.w3.org/2005/05/xmlmime" elementFormDefault="qualified">
+
+
+
+</xs:schema>	

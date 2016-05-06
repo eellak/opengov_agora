@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/db/schema/oci
+END
+COciCommandBuilder.php
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/db/schema/oci/COciCommandBuilder.php
+END
+COciTableSchema.php
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/db/schema/oci/COciTableSchema.php
+END
+COciColumnSchema.php
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/db/schema/oci/COciColumnSchema.php
+END
+COciSchema.php
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/db/schema/oci/COciSchema.php
+END

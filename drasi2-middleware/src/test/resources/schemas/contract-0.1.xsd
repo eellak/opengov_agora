@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://agora.opengov.gr/schema/contract-0.1"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="1.0"
+	xmlns:common="http://agora.opengov.gr/schema/common-0.1" xmlns:tns="http://agora.opengov.gr/schema/contract-0.1"
+	xmlns:xmime="http://www.w3.org/2005/05/xmlmime" elementFormDefault="qualified">
+
+	<xs:import namespace="http://agora.opengov.gr/schema/common-0.1"
+		schemaLocation="common-0.1.xsd" />
+
+	<xs:complexType name="contract">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="ContractOXM"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:publicOrganizationDecision">
+				<xs:sequence>
+					<xs:element name="contractingAuthority" type="common:taxonomyReferenceWithOther"/>
+					<xs:element name="awardProcedure" type="common:taxonomyReference"/>
+					<xs:element name="contractType" type="common:taxonomyReference"/>
+					<xs:element name="commissionCriteria" type="common:taxonomyReference"/>
+					<xs:element name="secondaryParties" type="common:arrayOfContractParties" />
+					<xs:element name="contractItems" type="common:arrayOfContractItems" />
+					<xs:element name="since" type="xs:date" />
+					<xs:element name="until" type="xs:date"  minOccurs="0"/>
+					<xs:element name="contractPlace" type="xs:string" minOccurs="0" />
+					<xs:element name="projectCode" type="xs:string" minOccurs="0" />
+					<xs:element name="changesContract" type="xs:string" minOccurs="0" />
+					<xs:element name="extendsContract" type="xs:string" minOccurs="0" />
+					<xs:element name="coFunded" type="xs:boolean" minOccurs="1"/>
+					<xs:element name="fundedFromPIP" type="xs:boolean" minOccurs="1"/>
+					<xs:element name="codeCoFunded" type="xs:string" minOccurs="0" />
+					<xs:element name="codePIP" type="xs:string" minOccurs="0" />						
+				</xs:sequence>				
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="arrayOfContracts">
+		<xs:sequence>
+			<xs:element name="contract" type="tns:contract" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="contracts">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="ContractsOXM"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:arrayOfContracts"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+		
+	<xs:element name="singleContract">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="SingleContractOXM"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:contract"/>
+			</xs:complexContent>
+		</xs:complexType>	
+	</xs:element>	 		
+	
+	<xs:element name="getContractsResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="contracts" type="tns:arrayOfContracts"/>
+				<xs:element name="pagination" type="common:paginationInfo" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>	
+	</xs:element>	
+	
+	<xs:complexType name="contractShort">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="ContractShortOXM"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:publicOrganizationDecision">
+				<xs:sequence>
+					<xs:element name="since" type="xs:date" />
+					<xs:element name="until" type="xs:date" minOccurs="0" />
+					<xs:element name="changesContract" type="xs:string" minOccurs="0" />
+					<xs:element name="extendsContract" type="xs:string" minOccurs="0" />
+					<xs:element name="totalCostBeforeVAT" type="xs:double"/>					
+				</xs:sequence> 
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="arrayOfContractsShort">
+		<xs:sequence>
+			<xs:element name="contract" type="tns:contractShort" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="getContractsShortResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="contracts" type="tns:arrayOfContractsShort"/>
+				<xs:element name="pagination" type="common:paginationInfo" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>	
+	</xs:element>	
+
+</xs:schema>	

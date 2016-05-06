@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/extensions/httpclient
+END
+ECookieJar.php
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/extensions/httpclient/ECookieJar.php
+END
+EHttpCookie.php
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/extensions/httpclient/EHttpCookie.php
+END
+EHttpClient.php
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/extensions/httpclient/EHttpClient.php
+END
+EHttpResponse.php
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/extensions/httpclient/EHttpResponse.php
+END
+EUri.php
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/extensions/httpclient/EUri.php
+END
+EUriHttp.php
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/extensions/httpclient/EUriHttp.php
+END
+EHostnameValidator.php
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/extensions/httpclient/EHostnameValidator.php
+END

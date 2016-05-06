@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 26, 2011 2:23:53 PM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+    <class name="gr.opengov.agora.domain.ContractItem" table="CONTRACTITEM">
+        <id name="id" type="java.lang.Long">
+            <column name="CONTRACTITEM_ID" />
+            <generator class="identity" />
+        </id>                           
+        <property name="quantity" type="java.lang.Double">
+            <column name="QUANTITY" />
+        </property>   
+                 
+		<property generated="never" lazy="false" name="unitOfMeasureIdRef" type="java.lang.String">
+			<column name="UNITOFMEASURE_IDREF"/>
+		</property>                 
+                 
+         <one-to-one name="cost" class="gr.opengov.agora.domain.Cost" fetch="join" cascade="all" constrained="true"/>
+
+        <set name="cpvCodes" cascade="none" table="CONTRACTITEM_CPVS" lazy="true" order-by="CPV_ID asc">
+            <key column="CONTRACTITEM_ID"/>
+<!--             <index column="idx"/> -->
+            <many-to-many column="CPV_ID" class="gr.opengov.agora.domain.Cpv" />
+        </set>
+        
+        <list name="kaeCodes" table="KAECODES" inverse="false" lazy="true" cascade="all-delete-orphan">
+            <key>
+                <column name="CONTRACTITEM_ID" />
+            </key>
+            <list-index></list-index>
+            <element type="java.lang.String">
+                <column name="KAECODE" />
+            </element>
+        </list>       
+          
+        <property name="description" type="text">
+            <column name="DESCRIPTION" />
+        </property>
+        
+		<many-to-one name="procurementRequest" class="gr.opengov.agora.domain.ProcurementRequest" fetch="join">
+			<column name="PROCUREMENTREQUEST_REF" />
+		</many-to-one>
+
+		<many-to-one name="notice" class="gr.opengov.agora.domain.Notice" fetch="join">
+			<column name="NOTICE_REF" />
+		</many-to-one>	
+		
+		<many-to-one name="contract" class="gr.opengov.agora.domain.Contract" fetch="join">
+			<column name="CONTRACT_REF" />
+		</many-to-one>				
+        
+        <property name="address" type="java.lang.String">
+            <column name="ADDRESS" />
+        </property>
+        
+        <property name="addressNo" type="java.lang.String">
+            <column name="ADDRESSNO" />
+        </property>
+
+        <property name="addressPostal" type="java.lang.String">
+            <column name="ADDRESSPOSTAL" />
+        </property>
+        
+        <property name="nuts" type="java.lang.String">
+            <column name="NUTS" />
+        </property>
+        
+        <property name="city" type="java.lang.String">
+            <column name="CITY" />
+        </property>
+        
+		<property generated="never" lazy="false" name="countryIdRef" type="java.lang.String">
+			<column name="COUNTRY_IDREF"/>
+		</property>
+ 
+		<property generated="never" lazy="false" name="countryProducedIdRef" type="java.lang.String">
+			<column name="COUNTRYPRODUCED_IDREF"/>
+		</property> 
+              
+	    <property name="invoiceNumber" type="java.lang.String">
+	        <column name="INVOICENUMBER" />
+	    </property>		
+    </class>
+    
+    <class name="gr.opengov.agora.domain.Cpv" table="CPV">
+
+        <id name="id" type="java.lang.Long">
+            <column name="CPV_ID" />
+            <generator class="identity" />
+        </id>        
+	    <property name="cpvCode" type="java.lang.String">
+	        <column name="CPVCODE" />
+	    </property>	
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://agora.opengov.gr/schema/payment-0.1"
+	xmlns:contract="http://agora.opengov.gr/schema/contract-0.1"
+	xmlns:common="http://agora.opengov.gr/schema/common-0.1" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	jaxb:version="1.0" xmlns:tns="http://agora.opengov.gr/schema/payment-0.1"
+	xmlns:xmime="http://www.w3.org/2005/05/xmlmime" elementFormDefault="qualified">
+
+	<xs:import namespace="http://agora.opengov.gr/schema/common-0.1"
+		schemaLocation="common-0.1.xsd" />
+
+	<xs:complexType name="paymentItem">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="PaymentItemOXM" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="contractItem" type="common:contractItem" />
+			<xs:element name="contractParty" type="common:contractParty" />
+			<xs:element name="responsibilityAssumptionCode" type="xs:string" minOccurs="0" />
+			<xs:element name="payed" type="xs:boolean" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string" use="optional" />
+	</xs:complexType>
+
+	<xs:complexType name="arrayOfPaymentItems">
+		<xs:sequence>
+			<xs:element name="paymentItem" type="tns:paymentItem"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="payment">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="PaymentOXM" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:publicOrganizationDecision">
+				<xs:sequence>
+					<xs:element name="contractId" type="xs:string" minOccurs="0" />
+					<xs:element name="paymentItems" type="tns:arrayOfPaymentItems" />
+					<xs:element name="responsibilityAssumptionCode" type="xs:string" minOccurs="0" />
+					<xs:element name="primaryParty" type="common:contractParty" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="arrayOfPayments">
+		<xs:sequence>
+			<xs:element name="payment" type="tns:payment" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="payments">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="PaymentsOXM" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:arrayOfPayments" />
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="singlePayment">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="SinglePaymentOXM" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:payment" />
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="getPaymentsResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="payments" type="tns:arrayOfPayments" />
+				<xs:element name="pagination" type="common:paginationInfo" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="paymentShort">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="PaymentShortOXM" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:publicOrganizationDecision">
+				<xs:sequence>
+					<xs:element name="contractId" type="xs:string" minOccurs="0" />
+					<xs:element name="totalCostBeforeVAT" type="xs:double"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="arrayOfPaymentsShort">
+		<xs:sequence>
+			<xs:element name="payment" type="tns:paymentShort"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="getPaymentsShortResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="payments" type="tns:arrayOfPaymentsShort" />
+				<xs:element name="pagination" type="common:paginationInfo"
+					minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>	

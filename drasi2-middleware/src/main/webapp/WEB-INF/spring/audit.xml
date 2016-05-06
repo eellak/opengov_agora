@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       					http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+	                    http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd	
+	">
+	
+	<!--  Audit trail configuration -->	
+	<bean id="serviceAuditTrailRecorder" class="gr.opengov.agora.security.AuditTrailRecorder">
+		<property name="accessControl" ref="accessControl"/>
+		<property name="taskExecutor" ref="auditTrailExecutor"/>		
+	</bean>
+	
+	<aop:config>
+		<aop:aspect id="auditTrailAspect" ref="serviceAuditTrailRecorder">
+			<aop:pointcut id="serviceCalled" expression="execution(* gr.opengov.agora.service.IDecisionGenericService.*(..))"/>
+			<aop:after-returning pointcut-ref="serviceCalled" method="saveAuditTrail" returning="ret"/>
+		</aop:aspect>		
+	</aop:config>
+			
+</beans>

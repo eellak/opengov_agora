@@ -1,0 +1,161 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/views/contract
+END
+_cancel.php
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/views/contract/_cancel.php
+END
+_formProcOld.php
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/views/contract/_formProcOld.php
+END
+form2.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/views/contract/form2.php
+END
+_formProc.php
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/views/contract/_formProc.php
+END
+extend.php
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/views/contract/extend.php
+END
+error.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/views/contract/error.php
+END
+_formSigners.php
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/views/contract/_formSigners.php
+END
+contractPayments.php
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/views/contract/contractPayments.php
+END
+_delete.php
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/views/contract/_delete.php
+END
+_form.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/views/contract/_form.php
+END
+create.php
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/views/contract/create.php
+END
+_formWithMultipleSigners.php
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/views/contract/_formWithMultipleSigners.php
+END
+search.php
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/views/contract/search.php
+END
+contractSuccess.php
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/views/contract/contractSuccess.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/views/contract/index.php
+END
+signersjs.php
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/views/contract/signersjs.php
+END
+changes.php
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/views/contract/changes.php
+END
+viewcontract.php
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/views/contract/viewcontract.php
+END
+_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/views/contract/_view.php
+END
+errorForm.php
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/views/contract/errorForm.php
+END
+_formContractitem.php
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/views/contract/_formContractitem.php
+END
+indexTable.php
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/views/contract/indexTable.php
+END
+createByProcOld.php
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/views/contract/createByProcOld.php
+END
+notice.php
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/views/contract/notice.php
+END
+createByProc.php
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/views/contract/createByProc.php
+END
+update.php
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/views/contract/update.php
+END

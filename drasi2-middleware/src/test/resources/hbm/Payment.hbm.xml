@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+ <joined-subclass
+  extends="gr.opengov.agora.domain.PublicOrganizationDecision"
+  lazy="false" name="gr.opengov.agora.domain.Payment" table="PAYMENT">
+  
+	<key>
+	 <column name="ID"/>
+	</key>
+  
+	<many-to-one class="gr.opengov.agora.domain.Contract" fetch="join" name="contract">
+	 <column name="CONTRACT_REF"/>
+	</many-to-one> 
+
+	<list cascade="all-delete-orphan" lazy="true" name="paymentItems" table="PAYMENTITEM">
+	 <key>
+	  <column name="PAYMENT_ID"/>
+	 </key>
+	 <list-index base="0"/>
+	 <one-to-many class="gr.opengov.agora.domain.PaymentItem"/>
+	</list>
+	
+    <property name="responsibilityAssumptionCode" type="java.lang.String">
+        <column name="RESPONSIBILITYASSUMPTIONCODE" />
+    </property>  	
+	
+	<many-to-one cascade="save-update,delete,merge"
+	 class="gr.opengov.agora.domain.ContractParty" fetch="join" name="primaryParty">
+	 <column name="PRIMARY_PARTY_REF"/>
+	</many-to-one>
+	
+ </joined-subclass>
+</hibernate-mapping>

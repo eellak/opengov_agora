@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/extensions/feed
+END
+EFeed.php
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/extensions/feed/EFeed.php
+END
+EFeedItemAtom.php
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/extensions/feed/EFeedItemAtom.php
+END
+EFeedItemAbstract.php
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/extensions/feed/EFeedItemAbstract.php
+END
+EFeedItemRSS1.php
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/extensions/feed/EFeedItemRSS1.php
+END
+EFeedItemRSS2.php
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/extensions/feed/EFeedItemRSS2.php
+END
+EFeedTag.php
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/extensions/feed/EFeedTag.php
+END

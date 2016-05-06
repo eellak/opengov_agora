@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/db/schema
+END
+CDbTableSchema.php
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/db/schema/CDbTableSchema.php
+END
+CDbColumnSchema.php
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/db/schema/CDbColumnSchema.php
+END
+CDbExpression.php
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/db/schema/CDbExpression.php
+END
+CDbSchema.php
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/db/schema/CDbSchema.php
+END
+CDbCriteria.php
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/db/schema/CDbCriteria.php
+END
+CDbCommandBuilder.php
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/db/schema/CDbCommandBuilder.php
+END

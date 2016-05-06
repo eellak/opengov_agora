@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<taxonomy xmlns="http://agora.opengov.gr/schema/common-0.1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	name="recursive"
+>
+	<item id="minedu">
+		<label>Υπουργείο Παιδείας</label>
+		<taxonomy>
+			<item id="grnet">
+				<label>ΕΔΕΤ</label>
+			</item>
+			<item id="athina">
+				<label>ΑΘΗΝΑ</label>
+			</item>
+		</taxonomy>
+	</item>
+
+	<item id="minfin">
+		<label>Υπουργείο Οικονομικών</label>
+		<taxonomy>
+			<item id="ggps">
+				<label>Γενική Γραμματεία Πληροφοριακών Συστημάτων</label>
+			</item>
+		</taxonomy>
+	</item>
+
+</taxonomy>

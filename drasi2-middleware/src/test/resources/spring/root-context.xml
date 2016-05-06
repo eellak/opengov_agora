@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:task="http://www.springframework.org/schema/task"	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+						http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd
+						http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+       					http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+	                    http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd	
+	">
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- Configuration properties -->
+	<bean id="configProperties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="location">
+			<value>classpath:agora-api.properties</value>
+		</property>
+		<property name="fileEncoding">
+			<value>UTF-8</value>
+		</property>
+	</bean>
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:agora-api.properties</value>
+		</property>
+		<property name="fileEncoding">
+			<value>UTF-8</value>
+		</property>
+	</bean>
+	
+	<!-- Defines two beans: dataSourceDiavgeia and dataSourceAgora --> 
+	<import resource="datasources.xml"/>
+	<import resource="diavgeia.xml"/>
+	
+	<!--  Thread pooling -->
+	<bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+	  	<property name="corePoolSize" value="5" />
+  		<property name="maxPoolSize" value="10" />
+  		<property name="queueCapacity" value="25" />
+	</bean>
+	
+	<!--  Test beans -->
+	<bean id="webUtils" class="gr.opengov.agora.test.util.WebUtils"/>
+	
+	<!--  Some common beans -->
+	<bean id="applicationContextProvider" class="gr.opengov.agora.util.ApplicationContextProvider"/>
+	<bean id="odeTestUser" class="gr.opengov.agora.test.stub.OdeOrgAdminUser"/>
+	<bean id="adaGenerator" class="gr.opengov.agora.util.AdaGenerator">
+		<constructor-arg>
+			<ref bean="dataSourceAgora"/>
+		</constructor-arg>
+	</bean>	
+	<bean id="diavgeiaAdaGenerator" class="gr.opengov.agora.util.DiavgeiaAdaGenerator">
+		<property name="accessControl" ref="accessControl"/>
+	</bean>	
+	<bean id="cmsManager" class="gr.opengov.agora.cms.CmsManager">
+		<property name="client" ref="odeTestUser"/>
+		<property name="adaGenerator" ref="adaGenerator" />
+	</bean>
+		
+	<bean id="odeOrgAdminTestClientFactory" class="gr.opengov.agora.test.stub.OdeOrgAdminTestClientFactory"/>
+	<bean id="accessControl" class="gr.opengov.agora.security.OdeAccessControl">
+		<property name="decisionService" ref="decisionService"/>
+		<property name="clientFactory" ref="odeOrgAdminTestClientFactory"/>
+	</bean>	 
+	<!-- 
+	<bean id="accessControl" class="gr.opengov.agora.test.stub.FullAccessControl" />
+	 --> 
+	<bean id="documentDao" class="gr.opengov.agora.dao.DocumentFilesystemDAO" />	
+
+	<!--  Spring security -->
+	<import resource="security.xml"/>
+
+	<!--  Hibernate -->
+	
+	<bean id="hibernateSessionFactoryReadOnly"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceAgoraAnonymousReader" />
+		<property name="mappingLocations">
+			<value>classpath:hbm/*.hbm.xml</value>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</prop>
+				<prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory
+				</prop>
+				<prop key="hibernate.hbm2ddl.auto">validate</prop>
+			</props>
+		</property>
+	</bean>	
+		
+	<bean id="hibernateSessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceAgora" />
+		<property name="mappingLocations">
+			<value>classpath:hbm/*.hbm.xml</value>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</prop>
+				<prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory
+				</prop>
+				<prop key="hibernate.hbm2ddl.auto">validate</prop>
+			</props>
+		</property>
+	</bean>
+	
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="hibernateSessionFactory" />
+	</bean>
+	
+	<bean id="transactionManagerReadOnly"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="hibernateSessionFactoryReadOnly" />
+	</bean>	
+	
+	<bean id="contractService" class="gr.opengov.agora.service.ContractServiceImpl">
+		<property name="dao" ref="contractDao" />
+		<property name="documentDAO" ref="documentDao" />
+		<property name="accessControl" ref="accessControl" />
+		<property name="validator" ref="contractValidator"/>
+		<property name="procurementRequestService" ref="procurementRequestService"/>
+		<property name="noticeService" ref="noticeService"/>		
+	</bean>	
+	
+	<bean id="contractServiceReadOnly" class="gr.opengov.agora.service.ContractServiceImplReadOnly">
+		<property name="dao" ref="contractDaoReadOnly" />
+		<property name="documentDAO" ref="documentDao" />
+		<property name="accessControl" ref="accessControl" />
+		<property name="validator" ref="contractValidatorReadOnly"/>
+		<property name="procurementRequestService" ref="procurementRequestServiceReadOnly"/>
+		<property name="noticeService" ref="noticeServiceReadOnly"/>		
+	</bean>		
+	
+	<bean id="noticeService" class="gr.opengov.agora.service.NoticeServiceImpl">
+		<property name="dao" ref="noticeDao" />
+		<property name="documentDAO" ref="documentDao" />
+		<property name="accessControl" ref="accessControl" />
+		<property name="validator" ref="noticeValidator"/>
+		<property name="procurementRequestService" ref="procurementRequestService"/>
+	</bean>	
+	
+	<bean id="noticeServiceReadOnly" class="gr.opengov.agora.service.NoticeServiceImplReadOnly">
+		<property name="dao" ref="noticeDaoReadOnly" />
+		<property name="documentDAO" ref="documentDao" />
+		<property name="accessControl" ref="accessControl" />
+		<property name="validator" ref="noticeValidatorReadOnly"/>
+		<property name="procurementRequestService" ref="procurementRequestServiceReadOnly"/>
+	</bean>	
+		
+	<bean id="procurementRequestService" class="gr.opengov.agora.service.ProcurementRequestServiceImpl">
+		<property name="dao" ref="procurementRequestDao" />
+		<property name="documentDAO" ref="documentDao" />
+		<property name="accessControl" ref="accessControl" />
+		<property name="validator" ref="procurementRequestValidator"/>
+	</bean>	
+	
+	<bean id="procurementRequestServiceReadOnly" class="gr.opengov.agora.service.ProcurementRequestServiceImplReadOnly">
+		<property name="dao" ref="procurementRequestDaoReadOnly" />
+		<property name="documentDAO" ref="documentDao" />
+		<property name="accessControl" ref="accessControl" />
+		<property name="validator" ref="procurementRequestValidatorReadOnly"/>
+	</bean>	
+	
+	<bean id="paymentService" class="gr.opengov.agora.service.PaymentServiceImpl">
+		<property name="dao" ref="paymentDao" />
+		<property name="documentDAO" ref="documentDao" />
+		<property name="contractDao" ref="contractDao" />
+		<property name="accessControl" ref="accessControl" />
+		<property name="validator" ref="paymentValidator"/>
+		<property name="procurementRequestService" ref="procurementRequestService"/>
+		<property name="noticeService" ref="noticeService"/>
+		<property name="contractService" ref="contractService"/>		
+	</bean>
+	
+	<bean id="paymentServiceReadOnly" class="gr.opengov.agora.service.PaymentServiceImplReadOnly">
+		<property name="dao" ref="paymentDaoReadOnly" />
+		<property name="documentDAO" ref="documentDao" />
+		<property name="contractDao" ref="contractDaoReadOnly" />
+		<property name="accessControl" ref="accessControl" />
+		<property name="validator" ref="paymentValidatorReadOnly"/>
+		<property name="procurementRequestService" ref="procurementRequestServiceReadOnly"/>
+		<property name="noticeService" ref="noticeServiceReadOnly"/>
+		<property name="contractService" ref="contractServiceReadOnly"/>		
+	</bean>	
+		
+	<bean id="decisionService" class="gr.opengov.agora.service.DecisionUtilsServiceImpl">
+		<property name="dao" ref="decisionDao" />
+		<property name="accessControl" ref="accessControl" />
+	</bean>			
+	
+	<bean id="decisionServiceReadOnly" class="gr.opengov.agora.service.DecisionUtilsServiceImplReadOnly">
+		<property name="dao" ref="decisionDaoReadOnly" />
+		<property name="accessControl" ref="accessControl" />
+	</bean>	
+			
+	<bean id="taxonomyMarshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+		<property name="contextPath" value="gr.opengov.agora.model" />
+		<property name="schemas">
+			<list>
+				<value>classpath:schemas/common-0.1.xsd</value>						
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="taxonomyService" class="gr.opengov.agora.service.TaxonomyServiceFilesystemImpl">
+		<property name="commonsConverter" ref="commonsOxmConverter"/>
+		<property name="marshaller" ref="taxonomyMarshaller"/>
+		<property name="taxonomyPath" value="classpath:taxonomies"/>
+		<property name="diavgeiaBridge" ref="diavgeiaBridge" />	
+	</bean>
+	
+	<bean id="taxonomyServiceReadOnly" class="gr.opengov.agora.service.TaxonomyServiceFilesystemImplReadOnly">
+		<property name="commonsConverter" ref="commonsOxmConverterReadOnly"/>
+		<property name="marshaller" ref="taxonomyMarshaller"/>
+		<property name="taxonomyPath" value="classpath:taxonomies"/>
+		<property name="diavgeiaBridge" ref="diavgeiaBridge" />	
+	</bean>	
+
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true"/>
+			<tx:method name="*"/>
+		</tx:attributes>
+	</tx:advice>
+
+	<tx:advice id="txAdviceReadOnly" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="*" read-only="true"/>
+		</tx:attributes>
+	</tx:advice>
+
+	<tx:advice id="txAdviceDbHandler" transaction-manager="transactionManager">
+		<tx:attributes>			
+			<tx:method name="*"/>
+		</tx:attributes>
+	</tx:advice>
+	
+	<aop:config>	
+		<aop:pointcut id="dbHandlerMethods" expression="execution(* gr.opengov.agora.test.util.IDatabaseHandler.clearDb(..))"/>
+		<aop:pointcut id="serviceMethods" expression="execution(* gr.opengov.agora.service.DecisionGenericService.*(..))" />
+		<aop:pointcut id="requestServiceMethods" expression="execution(* gr.opengov.agora.service.ProcurementRequestServiceImpl.*(..))" />
+		<aop:pointcut id="serviceUtilsMethods" expression="execution(* gr.opengov.agora.service.DecisionUtilsServiceImpl.*(..))" />
+		
+		<aop:pointcut id="serviceMethodsReadOnly" expression="execution(* gr.opengov.agora.service.DecisionGenericServiceReadOnly.*(..))" />
+		<aop:pointcut id="requestServiceMethodsReadOnly" expression="execution(* gr.opengov.agora.service.ProcurementRequestServiceImplReadOnly.*(..))" />
+		<aop:pointcut id="serviceUtilsMethodsReadOnly" expression="execution(* gr.opengov.agora.service.DecisionUtilsServiceImplReadOnly.*(..))" />		
+		
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="requestServiceMethods" />
+		<aop:advisor advice-ref="txAdviceDbHandler" pointcut-ref="dbHandlerMethods"/>		
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceUtilsMethods" />
+		
+		<aop:advisor advice-ref="txAdviceReadOnly" pointcut-ref="serviceMethodsReadOnly" />
+		<aop:advisor advice-ref="txAdviceReadOnly" pointcut-ref="requestServiceMethodsReadOnly" />
+		<aop:advisor advice-ref="txAdviceReadOnly" pointcut-ref="requestServiceMethodsReadOnly" />
+	</aop:config>
+
+	<bean id="contractDao" class="gr.opengov.agora.dao.DecisionGenericHibernateDAO">
+		<constructor-arg><value>gr.opengov.agora.domain.IContract</value></constructor-arg>
+		<property name="sessionFactory" ref="hibernateSessionFactory" />
+		<property name="cms" ref="cmsManager" />
+		<property name="accessControl" ref="accessControl" />
+		<property name="documentDao" ref="documentDao" />
+		<property name="diavgeiaBridge" ref="diavgeiaBridge" />
+	</bean>
+	
+	<bean id="contractDaoReadOnly" class="gr.opengov.agora.dao.DecisionGenericHibernateDAO">
+		<constructor-arg><value>gr.opengov.agora.domain.IContract</value></constructor-arg>
+		<property name="sessionFactory" ref="hibernateSessionFactoryReadOnly" />
+		<property name="cms" ref="cmsManager" />
+		<property name="accessControl" ref="accessControl" />
+		<property name="documentDao" ref="documentDao" />
+		<property name="diavgeiaBridge" ref="diavgeiaBridge" />
+	</bean>	
+	
+	<bean id="noticeDao" class="gr.opengov.agora.dao.DecisionGenericHibernateDAO">
+		<constructor-arg><value>gr.opengov.agora.domain.INotice</value></constructor-arg>
+		<property name="sessionFactory" ref="hibernateSessionFactory" />
+		<property name="cms" ref="cmsManager" />
+		<property name="accessControl" ref="accessControl" />
+		<property name="documentDao" ref="documentDao" />
+		<property name="diavgeiaBridge" ref="diavgeiaBridge" />
+	</bean>
+	
+	<bean id="noticeDaoReadOnly" class="gr.opengov.agora.dao.DecisionGenericHibernateDAO">
+		<constructor-arg><value>gr.opengov.agora.domain.INotice</value></constructor-arg>
+		<property name="sessionFactory" ref="hibernateSessionFactoryReadOnly" />
+		<property name="cms" ref="cmsManager" />
+		<property name="accessControl" ref="accessControl" />
+		<property name="documentDao" ref="documentDao" />
+		<property name="diavgeiaBridge" ref="diavgeiaBridge" />
+	</bean>		
+	
+	<bean id="procurementRequestDao" class="gr.opengov.agora.dao.DecisionGenericHibernateDAO">
+		<constructor-arg><value>gr.opengov.agora.domain.IProcurementRequest</value></constructor-arg>
+		<property name="sessionFactory" ref="hibernateSessionFactory" />
+		<property name="cms" ref="cmsManager" />
+		<property name="accessControl" ref="accessControl" />
+		<property name="documentDao" ref="documentDao" />
+		<property name="diavgeiaBridge" ref="diavgeiaBridge" />
+	</bean>
+	
+	<bean id="procurementRequestDaoReadOnly" class="gr.opengov.agora.dao.DecisionGenericHibernateDAO">
+		<constructor-arg><value>gr.opengov.agora.domain.IProcurementRequest</value></constructor-arg>
+		<property name="sessionFactory" ref="hibernateSessionFactoryReadOnly" />
+		<property name="cms" ref="cmsManager" />
+		<property name="accessControl" ref="accessControl" />
+		<property name="documentDao" ref="documentDao" />
+		<property name="diavgeiaBridge" ref="diavgeiaBridge" />
+	</bean>	
+
+	<bean id="paymentDao" class="gr.opengov.agora.dao.DecisionGenericHibernateDAO">
+		<constructor-arg><value>gr.opengov.agora.domain.IPayment</value></constructor-arg>
+		<property name="sessionFactory" ref="hibernateSessionFactory" />
+		<property name="cms" ref="cmsManager" />
+		<property name="accessControl" ref="accessControl" />
+		<property name="documentDao" ref="documentDao" />
+		<property name="diavgeiaBridge" ref="diavgeiaBridge" />
+	</bean>	
+	
+	<bean id="paymentDaoReadOnly" class="gr.opengov.agora.dao.DecisionGenericHibernateDAO">
+		<constructor-arg><value>gr.opengov.agora.domain.IPayment</value></constructor-arg>
+		<property name="sessionFactory" ref="hibernateSessionFactoryReadOnly" />
+		<property name="cms" ref="cmsManager" />
+		<property name="accessControl" ref="accessControl" />
+		<property name="documentDao" ref="documentDao" />
+		<property name="diavgeiaBridge" ref="diavgeiaBridge" />
+	</bean>		
+	
+	<bean id="decisionDao" class="gr.opengov.agora.dao.DecisionGenericHibernateDAO">
+		<constructor-arg><value>gr.opengov.agora.domain.IPublicOrganizationDecision</value></constructor-arg>
+		<property name="accessControl" ref="accessControl" />
+		<property name="documentDao" ref="documentDao" />
+		<property name="cms" ref="cmsManager" />
+		<property name="sessionFactory" ref="hibernateSessionFactory" />
+		<property name="diavgeiaBridge" ref="diavgeiaBridge" />
+	</bean>	
+	
+	<bean id="decisionDaoReadOnly" class="gr.opengov.agora.dao.DecisionGenericHibernateDAO">
+		<constructor-arg><value>gr.opengov.agora.domain.IPublicOrganizationDecision</value></constructor-arg>
+		<property name="accessControl" ref="accessControl" />
+		<property name="documentDao" ref="documentDao" />
+		<property name="cms" ref="cmsManager" />
+		<property name="sessionFactory" ref="hibernateSessionFactoryReadOnly" />
+		<property name="diavgeiaBridge" ref="diavgeiaBridge" />
+	</bean>		
+
+	<bean id="databaseHandler" class="gr.opengov.agora.test.util.DatabaseHandler">
+		<property name="sessionFactory" ref="hibernateSessionFactory"/>
+	</bean>
+	
+	<bean id="contractItemValidator" class="gr.opengov.agora.validation.ContractItemValidator" >
+		<property name="taxonomyService" ref="taxonomyService"/>
+		<property name="procurementRequestValidator" ref="procurementRequestValidator"/>
+		<property name="noticeValidator" ref="noticeValidator"/>
+		<property name="contractValidator" ref="contractValidator"/>			
+	</bean>
+	
+	<bean id="contractItemValidatorReadOnly" class="gr.opengov.agora.validation.ContractItemValidator" >
+		<property name="taxonomyService" ref="taxonomyServiceReadOnly"/>
+		<property name="procurementRequestValidator" ref="procurementRequestValidatorReadOnly"/>
+		<property name="noticeValidator" ref="noticeValidatorReadOnly"/>
+		<property name="contractValidator" ref="contractValidatorReadOnly"/>			
+	</bean>	
+	<!--  More complex beans -->
+	<bean id="contractValidator" class="gr.opengov.agora.validation.ContractValidator">
+		<property name="diavgeiaBridge" ref="diavgeiaBridge"/>
+		<property name="taxonomyService" ref="taxonomyService"/>		
+		<property name="procurementRequestService" ref="procurementRequestService" />
+		<property name="contractService" ref="contractService" />
+		<property name="noticeService" ref="noticeService" />
+		<property name="contractPartyValidator" ref="contractPartyValidator"/>
+		<property name="contractItemValidator" ref="contractItemValidator"/>		
+	</bean>	
+	
+	<bean id="contractValidatorReadOnly" class="gr.opengov.agora.validation.ContractValidator">
+		<property name="diavgeiaBridge" ref="diavgeiaBridge"/>
+		<property name="taxonomyService" ref="taxonomyServiceReadOnly"/>		
+		<property name="procurementRequestService" ref="procurementRequestServiceReadOnly" />
+		<property name="contractService" ref="contractServiceReadOnly" />
+		<property name="noticeService" ref="noticeServiceReadOnly" />
+		<property name="contractPartyValidator" ref="contractPartyValidatorReadOnly"/>
+		<property name="contractItemValidator" ref="contractItemValidatorReadOnly"/>		
+	</bean>		
+	
+	<bean id="noticeValidator" class="gr.opengov.agora.validation.NoticeValidator">
+		<property name="diavgeiaBridge" ref="diavgeiaBridge"/>
+		<property name="taxonomyService" ref="taxonomyService"/>				
+		<property name="procurementRequestService" ref="procurementRequestService" />
+		<property name="contractItemValidator" ref="contractItemValidator"/>
+	</bean>
+	
+	<bean id="noticeValidatorReadOnly" class="gr.opengov.agora.validation.NoticeValidator">
+		<property name="diavgeiaBridge" ref="diavgeiaBridge"/>
+		<property name="taxonomyService" ref="taxonomyServiceReadOnly"/>				
+		<property name="procurementRequestService" ref="procurementRequestServiceReadOnly" />
+		<property name="contractItemValidator" ref="contractItemValidatorReadOnly"/>
+	</bean>	
+	
+	<bean id="paymentItemValidator" class="gr.opengov.agora.validation.PaymentItemValidator" >
+		<property name="contractItemValidator" ref="contractItemValidator"/>
+		<property name="contractPartyValidator" ref="contractPartyValidator"/>
+	</bean>
+
+	<bean id="paymentItemValidatorReadOnly" class="gr.opengov.agora.validation.PaymentItemValidator" >
+		<property name="contractItemValidator" ref="contractItemValidatorReadOnly"/>
+		<property name="contractPartyValidator" ref="contractPartyValidatorReadOnly"/>
+	</bean>
+
+	
+	<bean id="paymentValidator" class="gr.opengov.agora.validation.PaymentValidator">
+		<property name="diavgeiaBridge" ref="diavgeiaBridge"/>
+		<property name="taxonomyService" ref="taxonomyService"/>		
+		<property name="procurementRequestService" ref="procurementRequestService" />
+		<property name="contractService" ref="contractService" />
+		<property name="paymentService" ref="paymentService" />
+		
+		<property name="paymentItemValidator" ref="paymentItemValidator"/>
+		<property name="contractValidator" ref="contractValidator"/>
+	</bean>	
+	
+	<bean id="paymentValidatorReadOnly" class="gr.opengov.agora.validation.PaymentValidator">
+		<property name="diavgeiaBridge" ref="diavgeiaBridge"/>
+		<property name="taxonomyService" ref="taxonomyServiceReadOnly"/>		
+		<property name="procurementRequestService" ref="procurementRequestServiceReadOnly" />
+		<property name="contractService" ref="contractServiceReadOnly" />
+		<property name="paymentService" ref="paymentServiceReadOnly" />
+		
+		<property name="paymentItemValidator" ref="paymentItemValidatorReadOnly"/>
+		<property name="contractValidator" ref="contractValidatorReadOnly"/>
+	</bean>		
+		
+	<bean id="procurementRequestValidator" class="gr.opengov.agora.validation.ProcurementRequestValidator">
+		<property name="diavgeiaBridge" ref="diavgeiaBridge"/>
+		<property name="taxonomyService" ref="taxonomyService"/>						
+		<property name="requestService" ref="procurementRequestService" />
+		<property name="contractService" ref="contractService" />
+		
+		<property name="contractItemValidator" ref="contractItemValidator"/>		
+	</bean>
+	
+	<bean id="procurementRequestValidatorReadOnly" class="gr.opengov.agora.validation.ProcurementRequestValidator">
+		<property name="diavgeiaBridge" ref="diavgeiaBridge"/>
+		<property name="taxonomyService" ref="taxonomyServiceReadOnly"/>						
+		<property name="requestService" ref="procurementRequestServiceReadOnly" />
+		<property name="contractService" ref="contractServiceReadOnly" />
+		
+		<property name="contractItemValidator" ref="contractItemValidatorReadOnly"/>		
+	</bean>		
+	
+	<bean id="commonsValidator" class="gr.opengov.agora.validation.CommonsValidator" />
+	
+	<bean id="contractPartyValidator" class="gr.opengov.agora.validation.ContractPartyValidator" >
+		<property name="commonsValidator" ref="commonsValidator"/>
+		<property name="taxonomyService" ref="taxonomyService"/>
+	</bean>	
+	
+	<bean id="contractPartyValidatorReadOnly" class="gr.opengov.agora.validation.ContractPartyValidator" >
+		<property name="commonsValidator" ref="commonsValidator"/>
+		<property name="taxonomyService" ref="taxonomyServiceReadOnly"/>
+	</bean>		
+		
+	<bean id="commonsOxmConverter" class="gr.opengov.agora.converters.CommonsOXMConverter">
+		<property name="procurementRequestService" ref="procurementRequestService"/>
+		<property name="noticeService" ref="noticeService"/>
+		<property name="contractService" ref="contractService"/>
+		<property name="diavgeiaBridge" ref="diavgeiaBridge" />
+	</bean>		
+	
+	<bean id="commonsOxmConverterReadOnly" class="gr.opengov.agora.converters.CommonsOXMConverter">
+		<property name="procurementRequestService" ref="procurementRequestServiceReadOnly"/>
+		<property name="noticeService" ref="noticeServiceReadOnly"/>
+		<property name="contractService" ref="contractServiceReadOnly"/>
+		<property name="diavgeiaBridge" ref="diavgeiaBridge" />
+	</bean>			
+		
+	<bean id="podOxmConverter" class="gr.opengov.agora.converters.PublicOrganizationDecisionOXMConverter">
+		<property name="decisionService" ref="decisionService"/>
+		<property name="configProperties" ref="configProperties"/>
+		<property name="commonsConverter" ref="commonsOxmConverter"/>
+	</bean>
+	
+	<bean id="podOxmConverterReadOnly" class="gr.opengov.agora.converters.PublicOrganizationDecisionOXMConverter">
+		<property name="decisionService" ref="decisionServiceReadOnly"/>
+		<property name="configProperties" ref="configProperties"/>
+		<property name="commonsConverter" ref="commonsOxmConverterReadOnly"/>
+	</bean>			
+	
+	<bean id="contractOxmConverter" class="gr.opengov.agora.converters.ContractOXMConverter">
+		<property name="contractService" ref="contractService"/>
+		<property name="commonsConverter" ref="commonsOxmConverter"/>
+		<property name="podConverter" ref="podOxmConverter"/>
+	</bean>
+	
+	<bean id="contractOxmConverterReadOnly" class="gr.opengov.agora.converters.ContractOXMConverter">
+		<property name="contractService" ref="contractServiceReadOnly"/>
+		<property name="commonsConverter" ref="commonsOxmConverterReadOnly"/>
+		<property name="podConverter" ref="podOxmConverterReadOnly"/>
+	</bean>	
+	
+	<bean id="noticeOxmConverter" class="gr.opengov.agora.converters.NoticeOXMConverter">
+		<property name="noticeService" ref="noticeService"/>
+		<property name="commonsConverter" ref="commonsOxmConverter"/>
+		<property name="podConverter" ref="podOxmConverter"/>
+	</bean>	
+	
+	<bean id="noticeOxmConverterReadOnly" class="gr.opengov.agora.converters.NoticeOXMConverter">
+		<property name="noticeService" ref="noticeServiceReadOnly"/>
+		<property name="commonsConverter" ref="commonsOxmConverterReadOnly"/>
+		<property name="podConverter" ref="podOxmConverterReadOnly"/>
+	</bean>		
+	
+	<bean id="procurementRequestOxmConverter" class="gr.opengov.agora.converters.ProcurementRequestOXMConverter">
+		<property name="commonsConverter" ref="commonsOxmConverter"/>
+		<property name="podConverter" ref="podOxmConverter"/>
+		<property name="requestService" ref="procurementRequestService"/>
+	</bean>
+	
+	<bean id="procurementRequestOxmConverterReadOnly" class="gr.opengov.agora.converters.ProcurementRequestOXMConverter">
+		<property name="commonsConverter" ref="commonsOxmConverterReadOnly"/>
+		<property name="podConverter" ref="podOxmConverterReadOnly"/>
+		<property name="requestService" ref="procurementRequestServiceReadOnly"/>
+	</bean>	
+	
+	<bean id="paymentOxmConverter" class="gr.opengov.agora.converters.PaymentOXMConverter">
+		<property name="contractService" ref="contractService"/>
+		<property name="commonsConverter" ref="commonsOxmConverter"/>
+		<property name="podConverter" ref="podOxmConverter"/>
+	</bean>
+	
+	<bean id="paymentOxmConverterReadOnly" class="gr.opengov.agora.converters.PaymentOXMConverter">
+		<property name="contractService" ref="contractServiceReadOnly"/>
+		<property name="commonsConverter" ref="commonsOxmConverterReadOnly"/>
+		<property name="podConverter" ref="podOxmConverterReadOnly"/>
+	</bean>	
+		
+	<!--  A JAXB marshaller -->
+	<bean id="jaxbMarshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+		<property name="contextPath" value="gr.opengov.agora.model" />
+		<property name="schemas">
+			<list>
+				<value>classpath:schemas/common-0.1.xsd</value>
+				<value>classpath:schemas/payment-0.1.xsd</value>
+				<value>classpath:schemas/contract-0.1.xsd</value>
+				<value>classpath:schemas/auth-0.1.xsd</value>	
+				<value>classpath:schemas/procurement-request-0.1.xsd</value>			
+				<value>classpath:schemas/notice-0.1.xsd</value>
+			</list>
+		</property>
+	</bean>
+
+
+</beans>

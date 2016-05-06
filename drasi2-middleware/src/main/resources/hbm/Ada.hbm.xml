@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 26, 2011 2:23:53 PM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+    <class name="gr.opengov.agora.domain.Ada" table="RELATEDADAS">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>                              
+        <property name="adaCode" type="java.lang.String">
+            <column name="ADACODE" />
+        </property>
+        <property name="adaType" type="java.lang.String">
+            <column name="ADATYPE" />
+        </property>        
+    </class>
+</hibernate-mapping>

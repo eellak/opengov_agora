@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<taxonomy xmlns="http://agora.opengov.gr/schema/common-0.1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	name="contract_type"
+>
+	<item>
+		<label>Έργα</label>
+		<taxonomy>
+			<item id="1">
+				<label>Εκτέλεση</label>
+			</item>		
+			<item id="2">
+				<label>Σχεδιασμός, Εκτέλεση</label>
+			</item>
+			<item id="3">
+				<label>Πραγματοποίηση</label>
+			</item>					
+		</taxonomy>
+	</item>
+	
+	<item>
+		<label>Προμήθειες</label>
+		<taxonomy>
+			<item id="4">
+				<label>Αγορά</label>
+			</item>		
+			<item id="5">
+				<label>Χρηματοδοτική μίσθωση</label>
+			</item>
+			<item id="6">
+				<label>Ενοικίαση</label>
+			</item>					
+			<item id="7">
+				<label>Αγορά Μίσθωση</label>
+			</item>
+			<item id="8">
+				<label>Συνδυασμός αυτών</label>
+			</item>																		
+		</taxonomy>
+	</item>	
+	
+	<item id="9">
+		<label>Υπηρεσίες</label>
+	</item>	
+</taxonomy>

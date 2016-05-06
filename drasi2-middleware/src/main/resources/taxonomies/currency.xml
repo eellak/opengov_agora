@@ -1,0 +1,552 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<taxonomy xmlns="http://agora.opengov.gr/schema/common-0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="currency">
+  <item id="EUR">
+    <label>Euro</label>
+  </item>
+  <item id="USD">
+    <label>US Dollar</label>
+  </item>  
+  <item id="AFN">
+    <label>Afghani</label>
+  </item>
+  <item id="XUA">
+    <label>ADB Unit of Account</label>
+  </item>
+  <item id="DZD">
+    <label>Algerian Dinar</label>
+  </item>
+  <item id="ARS">
+    <label>Argentine Peso</label>
+  </item>
+  <item id="AMD">
+    <label>Armenian Dram</label>
+  </item>
+  <item id="AWG">
+    <label>Aruban Guilder</label>
+  </item>
+  <item id="AUD">
+    <label>Australian Dollar</label>
+  </item>
+  <item id="AZN">
+    <label>Azerbaijanian Manat</label>
+  </item>
+  <item id="BSD">
+    <label>Bahamian Dollar</label>
+  </item>
+  <item id="BHD">
+    <label>Bahraini Dinar</label>
+  </item>
+  <item id="THB">
+    <label>Baht</label>
+  </item>
+  <item id="PAB">
+    <label>Balboa</label>
+  </item>
+  <item id="BBD">
+    <label>Barbados Dollar</label>
+  </item>
+  <item id="BYR">
+    <label>Belarussian Ruble</label>
+  </item>
+  <item id="BZD">
+    <label>Belize Dollar</label>
+  </item>
+  <item id="BMD">
+    <label>Bermudian Dollar</label>
+  </item>
+  <item id="VEF">
+    <label>Bolivar Fuerte </label>
+  </item>
+  <item id="BOB">
+    <label>Boliviano</label>
+  </item>
+  <item id="XBA">
+    <label>Bond Markets Unit European Composite Unit (EURCO)</label>
+  </item>
+  <item id="XBB">
+    <label>Bond Markets Unit European Monetary Unit (E.M.U.-6) </label>
+  </item>
+  <item id="XBD">
+    <label>Bond Markets Unit European Unit of Account 17 (E.U.A.-17)</label>
+  </item>
+  <item id="XBC">
+    <label>Bond Markets Unit European Unit of Account 9 (E.U.A.-9)</label>
+  </item>
+  <item id="BRL">
+    <label>Brazilian Real</label>
+  </item>
+  <item id="BND">
+    <label>Brunei Dollar</label>
+  </item>
+  <item id="BGN">
+    <label>Bulgarian Lev</label>
+  </item>
+  <item id="BIF">
+    <label>Burundi Franc</label>
+  </item>
+  <item id="CAD">
+    <label>Canadian Dollar</label>
+  </item>
+  <item id="CVE">
+    <label>Cape Verde Escudo</label>
+  </item>
+  <item id="KYD">
+    <label>Cayman Islands Dollar</label>
+  </item>
+  <item id="GHS">
+    <label>Cedi</label>
+  </item>
+  <item id="XOF">
+    <label>CFA Franc BCEAO </label>
+  </item>
+  <item id="XAF">
+    <label>CFA Franc BEAC </label>
+  </item>
+  <item id="XPF">
+    <label>CFP Franc</label>
+  </item>
+  <item id="CLP">
+    <label>Chilean Peso</label>
+  </item>
+  <item id="XTS">
+    <label>Codes specifically reserved for testing purposes</label>
+  </item>
+  <item id="COP">
+    <label>Colombian Peso</label>
+  </item>
+  <item id="KMF">
+    <label>Comoro Franc</label>
+  </item>
+  <item id="CDF">
+    <label>Congolese Franc </label>
+  </item>
+  <item id="BAM">
+    <label>Convertible Mark</label>
+  </item>
+  <item id="NIO">
+    <label>Cordoba Oro</label>
+  </item>
+  <item id="CRC">
+    <label>Costa Rican Colon</label>
+  </item>
+  <item id="HRK">
+    <label>Croatian Kuna</label>
+  </item>
+  <item id="CUP">
+    <label>Cuban Peso</label>
+  </item>
+  <item id="CZK">
+    <label>Czech Koruna</label>
+  </item>
+  <item id="GMD">
+    <label>Dalasi</label>
+  </item>
+  <item id="DKK">
+    <label>Danish Krone</label>
+  </item>
+  <item id="MKD">
+    <label>Denar</label>
+  </item>
+  <item id="DJF">
+    <label>Djibouti Franc</label>
+  </item>
+  <item id="STD">
+    <label>Dobra</label>
+  </item>
+  <item id="DOP">
+    <label>Dominican Peso</label>
+  </item>
+  <item id="VND">
+    <label>Dong</label>
+  </item>
+  <item id="XCD">
+    <label>East Caribbean Dollar</label>
+  </item>
+  <item id="EGP">
+    <label>Egyptian Pound</label>
+  </item>
+  <item id="SVC">
+    <label>El Salvador Colon</label>
+  </item>
+  <item id="ETB">
+    <label>Ethiopian Birr</label>
+  </item>
+  <item id="FKP">
+    <label>Falkland Islands Pound</label>
+  </item>
+  <item id="FJD">
+    <label>Fiji Dollar</label>
+  </item>
+  <item id="HUF">
+    <label>Forint</label>
+  </item>
+  <item id="GIP">
+    <label>Gibraltar Pound</label>
+  </item>
+  <item id="XAU">
+    <label>Gold</label>
+  </item>
+  <item id="HTG">
+    <label>Gourde</label>
+  </item>
+  <item id="PYG">
+    <label>Guarani</label>
+  </item>
+  <item id="GNF">
+    <label>Guinea Franc</label>
+  </item>
+  <item id="GYD">
+    <label>Guyana Dollar</label>
+  </item>
+  <item id="HKD">
+    <label>Hong Kong Dollar</label>
+  </item>
+  <item id="UAH">
+    <label>Hryvnia</label>
+  </item>
+  <item id="ISK">
+    <label>Iceland Krona</label>
+  </item>
+  <item id="INR">
+    <label>Indian Rupee</label>
+  </item>
+  <item id="IRR">
+    <label>Iranian Rial</label>
+  </item>
+  <item id="IQD">
+    <label>Iraqi Dinar</label>
+  </item>
+  <item id="JMD">
+    <label>Jamaican Dollar</label>
+  </item>
+  <item id="JOD">
+    <label>Jordanian Dinar</label>
+  </item>
+  <item id="KES">
+    <label>Kenyan Shilling</label>
+  </item>
+  <item id="PGK">
+    <label>Kina</label>
+  </item>
+  <item id="LAK">
+    <label>Kip</label>
+  </item>
+  <item id="KWD">
+    <label>Kuwaiti Dinar</label>
+  </item>
+  <item id="MWK">
+    <label>Kwacha</label>
+  </item>
+  <item id="AOA">
+    <label>Kwanza</label>
+  </item>
+  <item id="MMK">
+    <label>Kyat</label>
+  </item>
+  <item id="GEL">
+    <label>Lari</label>
+  </item>
+  <item id="LVL">
+    <label>Latvian Lats</label>
+  </item>
+  <item id="LBP">
+    <label>Lebanese Pound</label>
+  </item>
+  <item id="ALL">
+    <label>Lek</label>
+  </item>
+  <item id="HNL">
+    <label>Lempira</label>
+  </item>
+  <item id="SLL">
+    <label>Leone</label>
+  </item>
+  <item id="RON">
+    <label>Leu  </label>
+  </item>
+  <item id="LRD">
+    <label>Liberian Dollar</label>
+  </item>
+  <item id="LYD">
+    <label>Libyan Dinar</label>
+  </item>
+  <item id="SZL">
+    <label>Lilangeni</label>
+  </item>
+  <item id="LTL">
+    <label>Lithuanian Litas</label>
+  </item>
+  <item id="LSL">
+    <label>Loti</label>
+  </item>
+  <item id="MGA">
+    <label>Malagasy Ariary</label>
+  </item>
+  <item id="MYR">
+    <label>Malaysian Ringgit</label>
+  </item>
+  <item id="MUR">
+    <label>Mauritius Rupee</label>
+  </item>
+  <item id="MZN">
+    <label>Metical</label>
+  </item>
+  <item id="MXN">
+    <label>Mexican Peso</label>
+  </item>
+  <item id="MXV">
+    <label>Mexican Unidad de Inversion (UDI) </label>
+  </item>
+  <item id="MDL">
+    <label>Moldovan Leu</label>
+  </item>
+  <item id="MAD">
+    <label>Moroccan Dirham</label>
+  </item>
+  <item id="BOV">
+    <label>Mvdol </label>
+  </item>
+  <item id="NGN">
+    <label>Naira</label>
+  </item>
+  <item id="ERN">
+    <label>Nakfa</label>
+  </item>
+  <item id="NAD">
+    <label>Namibia Dollar</label>
+  </item>
+  <item id="NPR">
+    <label>Nepalese Rupee</label>
+  </item>
+  <item id="ANG">
+    <label>Netherlands Antillean Guilder</label>
+  </item>
+  <item id="ILS">
+    <label>New Israeli Sheqel</label>
+  </item>
+  <item id="TMT">
+    <label>New Manat</label>
+  </item>
+  <item id="TWD">
+    <label>New Taiwan Dollar</label>
+  </item>
+  <item id="NZD">
+    <label>New Zealand Dollar</label>
+  </item>
+  <item id="BTN">
+    <label>Ngultrum </label>
+  </item>
+  <item id="KPW">
+    <label>North Korean Won</label>
+  </item>
+  <item id="NOK">
+    <label>Norwegian Krone</label>
+  </item>
+  <item id="PEN">
+    <label>Nuevo Sol</label>
+  </item>
+  <item id="MRO">
+    <label>Ouguiya</label>
+  </item>
+  <item id="TOP">
+    <label>Pa’anga</label>
+  </item>
+  <item id="PKR">
+    <label>Pakistan Rupee</label>
+  </item>
+  <item id="XPD">
+    <label>Palladium</label>
+  </item>
+  <item id="MOP">
+    <label>Pataca</label>
+  </item>
+  <item id="CUC">
+    <label>Peso Convertible  </label>
+  </item>
+  <item id="UYU">
+    <label>Peso Uruguayo</label>
+  </item>
+  <item id="PHP">
+    <label>Philippine Peso</label>
+  </item>
+  <item id="XPT">
+    <label>Platinum</label>
+  </item>
+  <item id="GBP">
+    <label>Pound Sterling</label>
+  </item>
+  <item id="BWP">
+    <label>Pula</label>
+  </item>
+  <item id="QAR">
+    <label>Qatari Rial</label>
+  </item>
+  <item id="GTQ">
+    <label>Quetzal</label>
+  </item>
+  <item id="ZAR">
+    <label>Rand</label>
+  </item>
+  <item id="ZAR">
+    <label>Rand</label>
+  </item>
+  <item id="OMR">
+    <label>Rial Omani</label>
+  </item>
+  <item id="KHR">
+    <label>Riel</label>
+  </item>
+  <item id="MVR">
+    <label>Rufiyaa</label>
+  </item>
+  <item id="IDR">
+    <label>Rupiah</label>
+  </item>
+  <item id="RUB">
+    <label>Russian Ruble</label>
+  </item>
+  <item id="RWF">
+    <label>Rwanda Franc</label>
+  </item>
+  <item id="SHP">
+    <label>Saint Helena Pound</label>
+  </item>
+  <item id="SAR">
+    <label>Saudi Riyal</label>
+  </item>
+  <item id="XDR">
+    <label>SDR (Special Drawing Right)</label>
+  </item>
+  <item id="RSD">
+    <label>Serbian Dinar</label>
+  </item>
+  <item id="SCR">
+    <label>Seychelles Rupee</label>
+  </item>
+  <item id="XAG">
+    <label>Silver</label>
+  </item>
+  <item id="SGD">
+    <label>Singapore Dollar</label>
+  </item>
+  <item id="SBD">
+    <label>Solomon Islands Dollar</label>
+  </item>
+  <item id="KGS">
+    <label>Som</label>
+  </item>
+  <item id="SOS">
+    <label>Somali Shilling</label>
+  </item>
+  <item id="TJS">
+    <label>Somoni      </label>
+  </item>
+  <item id="ZAR">
+    <label>South African Rand</label>
+  </item>
+  <item id="LKR">
+    <label>Sri Lanka Rupee</label>
+  </item>
+  <item id="XSU">
+    <label>Sucre</label>
+  </item>
+  <item id="SDG">
+    <label>Sudanese Pound </label>
+  </item>
+  <item id="SRD">
+    <label>Surinam Dollar</label>
+  </item>
+  <item id="SEK">
+    <label>Swedish Krona</label>
+  </item>
+  <item id="CHF">
+    <label>Swiss Franc</label>
+  </item>
+  <item id="SYP">
+    <label>Syrian Pound</label>
+  </item>
+  <item id="BDT">
+    <label>Taka</label>
+  </item>
+  <item id="WST">
+    <label>Tala</label>
+  </item>
+  <item id="TZS">
+    <label>Tanzanian Shilling</label>
+  </item>
+  <item id="KZT">
+    <label>Tenge</label>
+  </item>
+  <item id="XXX">
+    <label>The codes assigned for transactions where no currency is involved</label>
+  </item>
+  <item id="TTD">
+    <label>Trinidad and Tobago Dollar</label>
+  </item>
+  <item id="MNT">
+    <label>Tugrik</label>
+  </item>
+  <item id="TND">
+    <label>Tunisian Dinar</label>
+  </item>
+  <item id="TRY">
+    <label>Turkish Lira  </label>
+  </item>
+  <item id="AED">
+    <label>UAE Dirham</label>
+  </item>
+  <item id="UGX">
+    <label>Uganda Shilling</label>
+  </item>
+  <item id="XFU">
+    <label>UIC-Franc</label>
+  </item>
+  <item id="COU">
+    <label>Unidad de Valor Real </label>
+  </item>
+  <item id="CLF">
+    <label>Unidades de fomento </label>
+  </item>
+  <item id="UYI">
+    <label>Uruguay Peso en Unidades Indexadas (URUIURUI)  </label>
+  </item>
+  <item id="USN">
+    <label>US Dollar (Next day) </label>
+  </item>
+  <item id="USS">
+    <label>US Dollar (Same day) </label>
+  </item>
+  <item id="UZS">
+    <label>Uzbekistan Sum</label>
+  </item>
+  <item id="VUV">
+    <label>Vatu</label>
+  </item>
+  <item id="CHE">
+    <label>WIR Euro </label>
+  </item>
+  <item id="CHW">
+    <label>WIR Franc  </label>
+  </item>
+  <item id="KRW">
+    <label>Won</label>
+  </item>
+  <item id="YER">
+    <label>Yemeni Rial</label>
+  </item>
+  <item id="JPY">
+    <label>Yen</label>
+  </item>
+  <item id="CNY">
+    <label>Yuan Renminbi</label>
+  </item>
+  <item id="ZMK">
+    <label>Zambian Kwacha</label>
+  </item>
+  <item id="ZWL">
+    <label>Zimbabwe Dollar   </label>
+  </item>
+  <item id="PLN">
+    <label>Zloty</label>
+  </item>
+</taxonomy>

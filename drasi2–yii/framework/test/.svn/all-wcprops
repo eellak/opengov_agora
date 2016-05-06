@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/test
+END
+CTestCase.php
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/test/CTestCase.php
+END
+CDbTestCase.php
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/test/CDbTestCase.php
+END
+CDbFixtureManager.php
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/test/CDbFixtureManager.php
+END
+CWebTestCase.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/test/CWebTestCase.php
+END

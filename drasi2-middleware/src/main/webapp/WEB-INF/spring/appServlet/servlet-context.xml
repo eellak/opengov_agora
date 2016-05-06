@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="		
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<beans:bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
+		up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/schema/*.xsd" location="classpath:schemas/" />
+	
+	<!-- Content negotiation -->
+	<!-- <beans:bean id="jaxbValidator" class="gr.opengov.agora.util.JaxbValidator" /> -->		
+	<beans:bean id="xmlMarshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+		<beans:property name="contextPath" value="gr.opengov.agora.model" />
+		<beans:property name="schemas">
+			<beans:list>
+				<beans:value>classpath:schemas/common-0.1.xsd</beans:value>
+				<beans:value>classpath:schemas/payment-0.1.xsd</beans:value>
+				<beans:value>classpath:schemas/contract-0.1.xsd</beans:value>
+				<beans:value>classpath:schemas/auth-0.1.xsd</beans:value>				
+				<beans:value>classpath:schemas/procurement-request-0.1.xsd</beans:value>
+				<beans:value>classpath:schemas/notice-0.1.xsd</beans:value>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	<beans:bean id="stringHttpMessageConverter" class="org.springframework.http.converter.StringHttpMessageConverter"/>
+	<beans:bean id="marshallingHttpMessageConverter" class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
+		<beans:property name="marshaller" ref="xmlMarshaller"/>
+		<beans:property name="unmarshaller" ref="xmlMarshaller"/>
+	</beans:bean>
+	
+	<beans:bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<beans:property name="messageConverters">
+			<beans:list>
+				<beans:ref bean="stringHttpMessageConverter" />
+				<beans:ref bean="marshallingHttpMessageConverter" />
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+
+	<beans:bean id="xmlView"
+		class="org.springframework.web.servlet.view.xml.MarshallingView">
+		<beans:constructor-arg ref="xmlMarshaller" />
+		<beans:property name="contentType" value="application/xml;charset=UTF-8" />
+	</beans:bean>
+
+	<beans:bean
+		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver"
+		p:order="#{T(org.springframework.core.Ordered).HIGHEST_PRECEDENCE}">
+		<beans:property name="mediaTypes">
+			<beans:map>
+				<beans:entry key="xml" value="application/xml" />
+				<beans:entry key="html" value="text/html" />
+			</beans:map>
+		</beans:property>
+		<beans:property name="viewResolvers">
+			<beans:list>
+				<beans:bean
+					class="org.springframework.web.servlet.view.BeanNameViewResolver">
+					<beans:property name="order" value="1" />
+				</beans:bean>
+<!-- 				<beans:bean -->
+<!-- 					class="org.springframework.web.servlet.view.InternalResourceViewResolver"> -->
+<!-- 					<beans:property name="order" value="2" /> -->
+<!-- 					<beans:property name="prefix" value="/WEB-INF/views/" /> -->
+<!-- 					<beans:property name="suffix" value=".jsp" /> -->
+<!-- 				</beans:bean> -->
+			</beans:list>
+		</beans:property>
+		<beans:property name="defaultViews">
+			<beans:list>
+				<beans:ref bean="xmlView" />
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+
+
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
+		in the /WEB-INF/views directory -->
+	<!-- <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
+		<beans:property name="prefix" value="/WEB-INF/views/" /> <beans:property 
+		name="suffix" value=".jsp" /> </beans:bean> -->
+
+	<!-- Imports user-defined @Controller beans that process client requests -->
+	<beans:import resource="controllers.xml" />
+
+</beans:beans>

@@ -1,0 +1,126 @@
+10
+
+dir
+106
+http://svn.imis.athena-innovation.gr/redmine/dioikitiki-metarithmisi/drasi2/drasi2-frontend/protected/extensions
+http://svn.imis.athena-innovation.gr/redmine/dioikitiki-metarithmisi
+
+
+
+2013-08-06T13:08:21.963581Z
+101
+zamani
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+d9ac7059-6bfd-4086-aa1d-81eb950cfe0b
+
+contentCompactor
+dir
+
+jqAutocomplete.php
+file
+
+
+
+
+2016-04-14T15:07:46.000000Z
+aa232c03038d6bdab009cc1a779a81bc
+2013-08-06T13:08:21.963581Z
+101
+zamani
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3755
+
+feed
+dir
+
+PHPExcel4Yii
+dir
+
+jui
+dir
+
+phpexcel
+dir
+
+recaptcha
+dir
+
+EAutoCompleteAction.php
+file
+
+
+
+
+2016-04-14T15:07:46.000000Z
+0a9f29ec7006d44421e83d0a3d9bb834
+2013-08-06T13:08:21.963581Z
+101
+zamani
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1618
+
+jqautocomplete
+dir
+
+qtip
+dir
+
+httpclient
+dir
+
+juiMsg
+dir
+

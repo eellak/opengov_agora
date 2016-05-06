@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 26, 2011 7:35:59 PM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+    <joined-subclass name="gr.opengov.agora.domain.PublicOrganizationDecision" extends="gr.opengov.agora.domain.CmsEntity" table="PUBLICORGANIZATIONDECISION" lazy="false">
+        <key>
+            <column name="ID" />
+        </key>
+        <property name="title" type="java.lang.String">
+            <column name="TITLE"   length="1024"/>
+        </property>        
+        <property name="uniqueDocumentCode" type="java.lang.String">
+            <column name="UNIQUEDOCUMENTCODE"/>
+        </property>
+        <property name="protocolNumberCode" type="java.lang.String">
+            <column name="PROTOCOLNUMBERCODE" />
+        </property>        
+        <property name="organizationDiavgeiaId" type="java.lang.Integer">
+            <column name="ORGANIZATIONDIAVGEIAID" />
+        </property>
+        <property name="unitDiavgeiaId" type="java.lang.Integer">
+            <column name="UNITDIAVGEIAID" />
+        </property>
+        <property name="issuerEmail" type="java.lang.String">
+            <column name="ISSUER_EMAIL" />
+        </property>   
+        <list cascade="all-delete-orphan" name="signersDiavgeiaIds" inverse="false" table="DECISION_SIGNERS" lazy="true">
+            <key>
+                <column name="DECISION_ID" />
+            </key>
+            <list-index></list-index>
+            <element type="java.lang.Integer">
+                <column name="SIGNERSDIAVGEIAID" />
+            </element>
+        </list>
+        <property name="diavgeiaPublished" type="java.lang.Boolean">
+        	<column name="DIAVGEIAPUBLISHED" />
+        </property>
+		<property generated="never" lazy="false" name="dateSigned" type="java.util.Calendar">
+		 <column name="DATESIGNED"/>
+		</property>
+		<list cascade="persist,all-delete-orphan" lazy="true" name="relatedAdas" table="RELATEDADA" access="field">
+		 <key>
+		  <column name="PUBLICORGANIZATIONDECISION_ID"/>
+		 </key>
+		 <list-index base="0"/>
+		 <one-to-many class="gr.opengov.agora.domain.Ada"/>
+		</list>		       
+		<!--  
+		<one-to-one name="document" class="gr.opengov.agora.domain.Document" fetch="join" cascade="all" constrained="true"/>
+		 --> 
+		
+        <many-to-one name="document" class="gr.opengov.agora.domain.Document" fetch="join" cascade="save-update,delete,merge">
+            <column name="DOCUMENT" />
+        </many-to-one>
+        
+    </joined-subclass>
+</hibernate-mapping>

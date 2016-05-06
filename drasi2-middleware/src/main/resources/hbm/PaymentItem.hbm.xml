@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 26, 2011 2:23:53 PM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+    <class name="gr.opengov.agora.domain.PaymentItem" table="PAYMENTITEM">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>                           
+        
+		<many-to-one cascade="save-update,delete,merge" class="gr.opengov.agora.domain.ContractParty" fetch="join" name="contractParty">
+		 <column name="CONTRACT_PARTY_REF"/>
+		</many-to-one>        
+		
+		<many-to-one cascade="save-update,delete,merge" class="gr.opengov.agora.domain.ContractItem" fetch="join" name="contractItem">
+		 <column name="CONTRACT_ITEM_REF"/>
+		</many-to-one>		
+ 
+	    <property name="responsibilityAssumptionCode" type="java.lang.String">
+	        <column name="RESPONSIBILITYASSUMPTIONCODE" />
+	    </property> 
+     
+	    <property name="payed" type="java.lang.Boolean">
+	        <column name="PAYED" />
+	    </property>      
+    </class>
+</hibernate-mapping>

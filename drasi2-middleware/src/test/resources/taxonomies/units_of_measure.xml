@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<taxonomy xmlns="http://agora.opengov.gr/schema/common-0.1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	name="units_of_measure"
+>
+<!-- preferred units of measure: http://www.edibuildeurope.dataexchangestandards.info/downloads/EdiBuild_Code_and_Identifier_Lists_v25_ME.xls  -->
+	<item id="P1">
+		<label>%</label>
+	</item>
+	<item id="DAY">
+		<label>Ημέρα</label>
+	</item>
+	<item id="HAR">
+		<label>Εκτάριο</label>
+	</item>
+	<item id="HUR">
+		<label>Ώρα</label>
+	</item>
+	<item id="C62">
+		<label>Τεμάχιο</label>
+	</item>
+	<item id="KGM">
+		<label>Kg</label>
+	</item>	
+	<item id="LTR">
+		<label>Λίτρο</label>
+	</item>	
+	<item id="MMT">
+		<label>mm</label>
+	</item>	
+	<item id="MMK">
+		<label>mm 2</label>
+	</item>	
+	<item id="MTR">
+		<label>m</label>
+	</item>
+	<item id="MTK">
+		<label>m 2</label>
+	</item>
+	<item id="MTQ">
+		<label>m 3</label>
+	</item>
+	<item id="NAR">
+		<label>Άρθρο</label>
+	</item>
+	<item id="NPR">
+		<label>Ζευγάρι</label>
+	</item>
+	<item id="TNE">
+		<label>Τόνος</label>
+	</item>		
+	<item id="DAY">
+		<label>Ημέρα</label>
+	</item>
+	<item id="WEE">
+		<label>Εβδομάδα</label>
+	</item>
+	<item id="MH">
+		<label>Ανθρωποώρα</label>
+	</item>			
+</taxonomy>

@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 26, 2011 7:35:59 PM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+ <joined-subclass
+  extends="gr.opengov.agora.domain.PublicOrganizationDecision"
+  lazy="false" name="gr.opengov.agora.domain.ProcurementRequest" table="PROCUREMENTREQUEST">
+  <key>
+   <column name="ID"/>
+  </key>
+<!--   <property generated="never" lazy="false" name="uniqueDocumentCode" type="java.lang.String"> -->
+<!--    <column name="UNIQUEDOCUMENTCODE"/> -->
+<!--   </property> -->
+  
+  <list cascade="all-delete-orphan" lazy="true" name="contractItems" table="CONTRACTITEM">
+   <key>
+    <column name="PROCUREMENTREQUEST_ID"/>
+   </key>
+   <list-index base="0"/>
+   <one-to-many class="gr.opengov.agora.domain.ContractItem"/>
+  </list>
+  
+	<many-to-one cascade="save-update,delete,merge" class="gr.opengov.agora.domain.ProcurementRequest" fetch="join" name="approvesRequest" not-null="false">
+		 <column name="APPROVESREQUEST_REF"/>
+	</many-to-one> 
+
+  <property generated="never" lazy="false" name="awardProcedureIdRef" type="java.lang.String">
+   <column name="AWARDPROCEDURE_IDREF"/>
+  </property>
+
+  <property generated="never" lazy="false" name="responsibilityAssumptionCode" type="java.lang.String">
+      <column name="RESPONSIBILITYASSUMPTIONCODE" />
+  </property> 
+
+
+  <property generated="never" lazy="false" name="fulfilmentDate" type="java.util.Calendar">
+      <column name="FULFILMENTDATE" />
+  </property>
+  
+  <property generated="never" name="eppApproved" type="java.lang.Boolean">
+	  <column name="EPPAPPROVED" />
+  </property>
+  
+  <property generated="never" name="code" type="java.lang.String">
+	  <column name="CODE" />
+  </property>
+      
+ </joined-subclass>
+</hibernate-mapping>

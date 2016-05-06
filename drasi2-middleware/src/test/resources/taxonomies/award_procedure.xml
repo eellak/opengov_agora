@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<taxonomy xmlns="http://agora.opengov.gr/schema/common-0.1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	name="award_procedure"
+>
+	<item id="1">
+		<label>Ανοιχτή</label>
+	</item>
+
+	<item id="2">
+		<label>Κλειστή</label>
+	</item>
+
+	<item id="3">
+		<label>Επισπευσμένη κλειστή</label>
+	</item>
+
+	<item id="4">
+		<label>Διάλογος</label>
+	</item>
+	
+	<item id="5">
+		<label>Πρόχειρος Διαγωνισμός</label>
+	</item>		
+	
+	<item id="6">
+		<label>Απευθείας Ανάθεση</label>
+	</item>
+	
+	<item id="7">
+		<label>Με Διαπραγμάτευση, με προκήρυξη διαγωνισμού</label>
+	</item>		
+	
+	<item id="8">
+		<label>Επισπευσμένη με διαδικασία</label>
+	</item>					
+    
+	<item id="9">
+		<label> Με Διαπραγμάτευση χωρίς προκήρυξη διαγωνισμού</label>
+	</item>		
+	
+	<item id="10">
+		<label>Ανάθεση Σύμβασης άνευ προκαταρικής δημοσίευσης προκήρυξης διαγωνισμού στην Επίσημη Εφημερίδα της Ευρωπαικής Ένωσης</label>
+	</item>
+    
+
+</taxonomy>

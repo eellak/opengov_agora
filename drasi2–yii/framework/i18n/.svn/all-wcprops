@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/i18n
+END
+CGettextMessageSource.php
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/i18n/CGettextMessageSource.php
+END
+CDbMessageSource.php
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/i18n/CDbMessageSource.php
+END
+CNumberFormatter.php
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/i18n/CNumberFormatter.php
+END
+CPhpMessageSource.php
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/i18n/CPhpMessageSource.php
+END
+CLocale.php
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/i18n/CLocale.php
+END
+CDateFormatter.php
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/i18n/CDateFormatter.php
+END
+CChoiceFormat.php
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/i18n/CChoiceFormat.php
+END
+CMessageSource.php
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/i18n/CMessageSource.php
+END

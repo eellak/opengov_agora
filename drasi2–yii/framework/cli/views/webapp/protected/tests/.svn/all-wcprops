@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/cli/views/webapp/protected/tests
+END
+phpunit.xml
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/cli/views/webapp/protected/tests/phpunit.xml
+END
+WebTestCase.php
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/cli/views/webapp/protected/tests/WebTestCase.php
+END
+bootstrap.php
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/cli/views/webapp/protected/tests/bootstrap.php
+END

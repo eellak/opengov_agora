@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://agora.opengov.gr/schema/procurement-request-0.1"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="1.0"
+	xmlns:common="http://agora.opengov.gr/schema/common-0.1" xmlns:tns="http://agora.opengov.gr/schema/procurement-request-0.1"
+	xmlns:xmime="http://www.w3.org/2005/05/xmlmime" elementFormDefault="qualified">
+
+	<xs:import namespace="http://agora.opengov.gr/schema/common-0.1"
+		schemaLocation="common-0.1.xsd" />
+		
+		
+	<xs:complexType name="procurementRequest">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="ProcurementRequestOXM"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:publicOrganizationDecision">
+				<xs:sequence>					
+					<xs:element name="contractItems" type="common:arrayOfContractItems" />
+					<xs:element name="approvesRequest" type="xs:string"  minOccurs="0"/>
+					<xs:element name="awardProcedure" type="common:taxonomyReference"  minOccurs="0"/>
+					<xs:element name="responsibilityAssumptionCode" type="xs:string" minOccurs="0" />
+					<xs:element name="fulfilmentDate" type="xs:date" minOccurs="0"/>
+					<xs:element name="eppApproved" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="code" type="xs:string" minOccurs="0"/>
+				</xs:sequence>				
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>		
+
+	<xs:element name="singleProcurementRequest">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="SingleProcurementRequestOXM"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:procurementRequest"/>
+			</xs:complexContent>
+		</xs:complexType>	
+	</xs:element>
+
+	<xs:complexType name="arrayOfProcurementRequests">
+		<xs:sequence>
+			<xs:element name="request" type="tns:procurementRequest" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="procurementRequests">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="ProcurementRequestsOXM"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:arrayOfProcurementRequests"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="getProcurementRequestsResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="procurementRequests" type="tns:arrayOfProcurementRequests"/>
+				<xs:element name="pagination" type="common:paginationInfo" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>	
+	</xs:element>
+	
+	<xs:complexType name="procurementRequestShort">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="ProcurementRequestShortOXM" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:publicOrganizationDecision">
+				<xs:sequence>
+					<xs:element name="totalCostBeforeVAT" type="xs:double"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="arrayOfProcurementRequestsShort">
+		<xs:sequence>
+			<xs:element name="procurementRequest" type="tns:procurementRequestShort"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="getProcurementRequestsShortResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="procurementRequests" type="tns:arrayOfProcurementRequestsShort" />
+				<xs:element name="pagination" type="common:paginationInfo"
+					minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>	

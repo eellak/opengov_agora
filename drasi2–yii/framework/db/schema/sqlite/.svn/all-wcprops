@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/db/schema/sqlite
+END
+CSqliteColumnSchema.php
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/db/schema/sqlite/CSqliteColumnSchema.php
+END
+CSqliteSchema.php
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/db/schema/sqlite/CSqliteSchema.php
+END
+CSqliteCommandBuilder.php
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2%E2%80%93yii/framework/db/schema/sqlite/CSqliteCommandBuilder.php
+END

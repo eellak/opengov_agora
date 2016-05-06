@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://agora.opengov.gr/schema/notice-0.1"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="1.0"
+	xmlns:common="http://agora.opengov.gr/schema/common-0.1" xmlns:tns="http://agora.opengov.gr/schema/notice-0.1"
+	xmlns:xmime="http://www.w3.org/2005/05/xmlmime" elementFormDefault="qualified">
+
+	<xs:import namespace="http://agora.opengov.gr/schema/common-0.1"
+		schemaLocation="common-0.1.xsd" />
+	
+	<xs:complexType name="arrayOfProcurementRequestIds">
+		<xs:sequence>
+			<xs:element name="requestId" type="xs:string" maxOccurs="unbounded"  minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>	
+				
+	<xs:complexType name="notice">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="NoticeOXM"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:publicOrganizationDecision">
+				<xs:sequence>		
+					<xs:element name="since" type="xs:date" />
+					<xs:element name="until" type="xs:date" />
+					<xs:element name="awardProcedure" type="common:taxonomyReference"/>			
+					<xs:element name="contractItems" type="common:arrayOfContractItems" />
+				</xs:sequence>				
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>		
+
+	<xs:element name="singleNotice">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="SingleNoticeOXM"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:notice"/>
+			</xs:complexContent>
+		</xs:complexType>	
+	</xs:element>	
+
+	<xs:complexType name="arrayOfNotices">
+		<xs:sequence>
+			<xs:element name="notice" type="tns:notice" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="notices">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="NoticesOXM"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="tns:arrayOfNotices"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="getNoticesResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="notices" type="tns:arrayOfNotices"/>
+				<xs:element name="pagination" type="common:paginationInfo" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>	
+	</xs:element>
+	
+	<xs:complexType name="noticeShort">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="NoticeShortOXM" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="common:publicOrganizationDecision">
+				<xs:sequence>
+					<xs:element name="since" type="xs:date" />
+					<xs:element name="until" type="xs:date" />
+					<xs:element name="totalCostBeforeVAT" type="xs:double"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="arrayOfNoticesShort">
+		<xs:sequence>
+			<xs:element name="notice" type="tns:noticeShort"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="getNoticesShortResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="notices" type="tns:arrayOfNoticesShort" />
+				<xs:element name="pagination" type="common:paginationInfo"
+					minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>	

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<singleProcurementRequest xmlns="http://agora.opengov.gr/schema/procurement-request-0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://agora.opengov.gr/schema/common-0.1">
+ <c:title>Neo test1</c:title>
+ <c:uniqueDocumentCode>1</c:uniqueDocumentCode>
+ <c:protocolNumberCode>213123</c:protocolNumberCode>
+ <c:organization idRef="366"><c:unit idRef="172"/></c:organization>
+ <c:signers>
+  <c:signer idRef="16"/>
+ </c:signers>
+ <c:diavgeiaPublished>false</c:diavgeiaPublished>
+ <c:dateSigned>2013-06-12</c:dateSigned>
+ <c:relatedAdas/>
+ <c:issuerEmail>tets@tata.gr</c:issuerEmail>
+ <contractItems>
+  <c:item>
+   <c:quantity>1</c:quantity>
+   <c:unitOfMeasure idRef="P1"/>
+   <c:cost>
+    <c:costBeforeVat>100</c:costBeforeVat>
+    <c:vatPercentage>23</c:vatPercentage>
+    <c:currency idRef="EUR"/>
+   </c:cost>
+   <c:cpvCodes>
+    <c:cpv>31712345-0</c:cpv>
+   </c:cpvCodes>
+   <c:kaeCodes/>
+   <c:description>mia mikrh perigrafh </c:description>
+  </c:item>
+ </contractItems>
+ <fulfilmentDate>2013-08-22</fulfilmentDate>
+</singleProcurementRequest>

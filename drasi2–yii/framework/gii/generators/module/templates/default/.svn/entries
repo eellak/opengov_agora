@@ -1,0 +1,77 @@
+10
+
+dir
+106
+http://svn.imis.athena-innovation.gr/redmine/dioikitiki-metarithmisi/drasi2/drasi2%E2%80%93yii/framework/gii/generators/module/templates/default
+http://svn.imis.athena-innovation.gr/redmine/dioikitiki-metarithmisi
+
+
+
+2013-08-06T13:08:21.963581Z
+101
+zamani
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+d9ac7059-6bfd-4086-aa1d-81eb950cfe0b
+
+models
+dir
+
+components
+dir
+
+controllers
+dir
+
+messages
+dir
+
+module.php
+file
+
+
+
+
+2016-04-14T15:10:57.000000Z
+bc12cddc675b1908d484eba5838e4941
+2013-08-06T13:08:21.963581Z
+101
+zamani
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+725
+
+views
+dir
+

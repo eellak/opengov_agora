@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<taxonomy xmlns="http://agora.opengov.gr/schema/common-0.1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	name="deletion_type"
+>
+	<item id="1">
+		<label>Ακύρωση</label>
+	</item>
+	<item id="2">
+		<label>Ματαίωση</label>
+	</item>
+	<item id="3">
+		<label>Διαγραφή</label>
+	</item>
+</taxonomy>

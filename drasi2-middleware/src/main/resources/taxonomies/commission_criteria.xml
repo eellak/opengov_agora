@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<taxonomy xmlns="http://agora.opengov.gr/schema/common-0.1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	name="commission_criteria"
+>
+	<item id="1">
+		<label>Χαμηλότερη τιμή</label>
+	</item>
+
+	<item id="2">
+		<label>Πλέον οικονομικότερη προσφορά σύμφωνα με τα ακόλουθα στοιχεία (λίστα από στοιχεία)</label>
+	</item>
+
+
+</taxonomy>

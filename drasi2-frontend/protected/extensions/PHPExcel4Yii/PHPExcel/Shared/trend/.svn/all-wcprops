@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/extensions/PHPExcel4Yii/PHPExcel/Shared/trend
+END
+trendClass.php
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/extensions/PHPExcel4Yii/PHPExcel/Shared/trend/trendClass.php
+END
+powerBestFitClass.php
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/extensions/PHPExcel4Yii/PHPExcel/Shared/trend/powerBestFitClass.php
+END
+bestFitClass.php
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/extensions/PHPExcel4Yii/PHPExcel/Shared/trend/bestFitClass.php
+END
+logarithmicBestFitClass.php
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/extensions/PHPExcel4Yii/PHPExcel/Shared/trend/logarithmicBestFitClass.php
+END
+polynomialBestFitClass.php
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/extensions/PHPExcel4Yii/PHPExcel/Shared/trend/polynomialBestFitClass.php
+END
+exponentialBestFitClass.php
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/extensions/PHPExcel4Yii/PHPExcel/Shared/trend/exponentialBestFitClass.php
+END
+linearBestFitClass.php
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/redmine/dioikitiki-metarithmisi/!svn/ver/101/drasi2/drasi2-frontend/protected/extensions/PHPExcel4Yii/PHPExcel/Shared/trend/linearBestFitClass.php
+END

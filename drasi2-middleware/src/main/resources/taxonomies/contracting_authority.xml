@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<taxonomy xmlns="http://agora.opengov.gr/schema/common-0.1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	name="contracting_authority"
+>
+	<item id="1">
+		<label>Υπουργείο ή άλλη εθνική αρχή</label>
+	</item>
+
+	<item id="2">
+		<label>Εθνική ή ομοσπονδιακή υπηρεσία / γραφείο</label>
+	</item>
+
+	<item id="3">
+		<label>Περιφερειακή ή τοπική αρχή</label>
+	</item>
+
+	<item id="4">
+		<label>Περιφερειακή ή τοπική υπηρεσία / γραφείο</label>
+	</item>
+
+	<item id="5">
+		<label>Οργανισμός δημοσίου δικαίου</label>
+	</item>
+
+	<item id="6">
+		<label>Ευρωπαϊκό θεσμικό όργανο ή διεθνής οργανισμός</label>
+	</item>
+
+</taxonomy>

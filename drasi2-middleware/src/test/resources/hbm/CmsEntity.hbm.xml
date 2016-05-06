@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 26, 2011 7:35:59 PM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+	<class name="gr.opengov.agora.domain.CmsEntity" table="CMSENTITY">
+		<id name="id" type="java.lang.String">
+			<column name="ID" />
+			<generator class="assigned" />
+		</id>
+
+		<many-to-one name="replaces" class="gr.opengov.agora.domain.CmsEntity"
+			fetch="join">
+			<column name="REPLACES_REF" />
+		</many-to-one>
+
+		<component name="cmsMetadata" class="gr.opengov.agora.domain.CmsMetadata">			
+			<property name="userDiavgeiaId" type="java.lang.Integer">
+				<column name="USERDIAVGEIAID" />
+			</property>
+			<property name="submissionTime" type="java.util.Calendar">
+				<column name="SUBMISSIONTIME" />
+			</property>
+			<property name="lastModifiedTime" type="java.util.Calendar">
+				<column name="LASTMODIFIEDTIME" />
+			</property>
+			<property name="deleted" type="java.lang.Boolean">
+				<column name="DELETED" />
+			</property>
+			<property name="deletedReason" type="java.lang.String">
+				<column name="DELETEDREASON" />
+			</property>
+			
+			<property name="deletionTypeIdRef" type="java.lang.String">
+			 <column name="DELETIONTYPE_IDREF"/>
+			</property>			
+			
+			<property name="deletedFromUserId" type="java.lang.Integer">
+				<column name="DELETEDFROMUSERID" />
+			</property>
+			<property name="deletedTime" type="java.util.Calendar">
+				<column name="DELTEDTIME" />
+			</property>			
+			
+			<property name="cancelled" type="java.lang.Boolean">
+				<column name="CANCELLED" />
+			</property>
+			<property name="cancelledReason" type="java.lang.String">
+				<column name="CANCELLEDREASON" />
+			</property>
+			
+			<property name="cancellationTypeIdRef" type="java.lang.String">
+			 <column name="CANCELLATIONTYPE_IDREF"/>
+			</property>			
+			
+			<property name="cancelledFromUserId" type="java.lang.Integer">
+				<column name="CANCELLEDFROMUSERID" />
+			</property>
+			<property name="cancelledTime" type="java.util.Calendar">
+				<column name="CANCELLEDTIME" />
+			</property>			
+		</component>
+	</class>
+</hibernate-mapping>

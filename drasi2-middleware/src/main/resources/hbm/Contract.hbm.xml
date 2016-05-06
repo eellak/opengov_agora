@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 26, 2011 7:35:59 PM by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping>
+ <joined-subclass
+  extends="gr.opengov.agora.domain.PublicOrganizationDecision"
+  lazy="false" name="gr.opengov.agora.domain.Contract" table="CONTRACT">
+  <key>
+   <column name="ID"/>
+  </key>
+  <property generated="never" lazy="false"
+   name="contractingAuthorityIdRef" type="java.lang.String">
+   <column name="CONTRACTINGAUTHORITY_IDREF"/>
+  </property>
+  <property generated="never" lazy="false" name="awardProcedureIdRef" type="java.lang.String">
+   <column name="AWARDPROCEDURE_IDREF"/>
+  </property>
+  <property generated="never" lazy="false" name="contractTypeIdRef" type="java.lang.String">
+   <column name="CONTRACTTYPE_IDREF"/>
+  </property>
+  <property generated="never" lazy="false" name="commissionCriteriaIdRef" type="java.lang.String">
+   <column name="COMMISSIONCRITERIA_IDREF"/>
+  </property>  
+  
+  <property generated="never" lazy="false" name="contractingAuthorityOther" type="java.lang.String">
+   <column name="CONTRACTINGAUTHORITY_OTHER"/>
+  </property>
+  <list cascade="all-delete-orphan" lazy="true" name="secondaryParties" table="CONTRACTPARTY">
+   <key>
+    <column name="CONTRACT_ID"/>
+   </key>
+   <list-index base="0"/>
+   <one-to-many class="gr.opengov.agora.domain.ContractParty"/>
+  </list>
+  <list cascade="all-delete-orphan" lazy="true" name="contractItems" table="CONTRACTITEM">
+   <key>
+    <column name="CONTRACT_ID"/>
+   </key>
+   <list-index base="0"/>
+   <one-to-many class="gr.opengov.agora.domain.ContractItem"/>
+  </list>
+  <property generated="never" lazy="false" name="since" type="java.util.Calendar">
+   <column name="SINCE"/>
+  </property>
+  <property generated="never" lazy="false" name="until" type="java.util.Calendar">
+   <column name="UNTIL"/>
+  </property>
+  <property generated="never" lazy="false" name="contractPlace" type="java.lang.String">
+   <column name="CONTRACTPLACE"/>
+  </property>  
+  <property generated="never" lazy="false" name="projectCode" type="java.lang.String">
+   <column name="PROJECTCODE"/>
+  </property>    
+  <many-to-one class="gr.opengov.agora.domain.Contract" fetch="join" name="changesContract">
+   <column name="CHANGESCONTRACT_REF"/>
+  </many-to-one>
+  <many-to-one class="gr.opengov.agora.domain.Contract" fetch="join" name="extendsContract">
+   <column name="EXTENDSCONTRACT_REF"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="coFunded" type="java.lang.Boolean">
+   <column name="COFUNDED"/>
+  </property>
+  <property generated="never" lazy="false" name="fundedFromPIP" type="java.lang.Boolean">
+   <column name="FUNDEDFROMPIP"/>
+  </property>
+  <property generated="never" lazy="false" name="codeCoFunded" type="java.lang.String">
+   <column name="CODECOFUNDED"/>
+  </property>  
+  <property generated="never" lazy="false" name="codePIP" type="java.lang.String">
+   <column name="CODEPIP"/>
+  </property>    
+ </joined-subclass>
+</hibernate-mapping>

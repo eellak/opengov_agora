@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	                    http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd	
+	">
+	<!-- Root Context: defines shared resources visible to all other web components -->
+
+	<!-- Datasources -->
+	<bean id="dataSourceDiavgeiaReader"
+    	class="org.apache.commons.dbcp.BasicDataSource"
+    	destroy-method="close"
+    	p:maxActive="100"
+    	p:removeAbandoned="true"
+    	p:logAbandoned="true"
+    	p:driverClassName="${db.diavgeia-ro.driver}"
+    	p:url="${db.diavgeia-ro.url}"
+    	p:username="${db.diavgeia-ro.username}"
+    	p:password="${db.diavgeia-ro.password}" />
+    	
+   	<bean id="dataSourceDiavgeiaWriter"
+    	class="org.apache.commons.dbcp.BasicDataSource"
+    	destroy-method="close"
+    	p:maxActive="100"
+    	p:removeAbandoned="true"
+    	p:logAbandoned="true"
+    	p:driverClassName="${db.diavgeia-rw.driver}"
+    	p:url="${db.diavgeia-rw.url}"
+    	p:username="${db.diavgeia-rw.username}"
+    	p:password="${db.diavgeia-rw.password}" />
+
+	<bean id="dataSourceAgora"
+    	class="org.apache.commons.dbcp.BasicDataSource"
+    	destroy-method="close"
+    	p:maxActive="100"
+    	p:removeAbandoned="true"
+    	p:logAbandoned="true"
+      	p:driverClassName="${db.agora.driver}"
+    	p:url="${db.agora.url}"
+    	p:username="${db.agora.username}"
+    	p:password="${db.agora.password}" />
+    	
+	<bean id="dataSourceAgoraAnonymousReader"
+    	class="org.apache.commons.dbcp.BasicDataSource"
+    	destroy-method="close"
+    	p:maxActive="100"
+    	p:removeAbandoned="true"
+    	p:logAbandoned="true"
+      	p:driverClassName="${db.agora-ro.driver}"
+    	p:url="${db.agora-ro.url}"
+    	p:username="${db.agora-ro.username}"
+    	p:password="${db.agora-ro.password}" />    	
+
+    
+</beans>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contracts xmlns="http://agora.opengov.gr/schema/contract-0.1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://agora.opengov.gr/schema/common-0.1"
+>
+	<contract>
+		<c:title>Test Document</c:title>
+		<c:uniqueDocumentCode>134</c:uniqueDocumentCode>
+		<c:protocolNumberCode>pnc 11</c:protocolNumberCode>		
+		<c:organization idRef="366"><c:unit idRef="192"/></c:organization>
+		<c:signers>
+			<c:signer idRef="16"/>
+			<c:signer idRef="21"/>
+		</c:signers>
+		<c:diavgeiaPublished>true</c:diavgeiaPublished>
+		<c:dateSigned>2011-01-25</c:dateSigned>
+		<!-- c:relatedAdas>
+			<c:ada>
+				<c:adaCode>4Α12ΕΣ-0</c:adaCode>
+				<c:adaType>ada type test</c:adaType>
+			</c:ada>
+			<c:ada>
+				<c:adaCode>4Α12ΕΣ-2</c:adaCode>
+				<c:adaType>ada type test</c:adaType>
+			</c:ada>			
+		</c:relatedAdas-->	
+		<c:issuerEmail>testIssuer@localhost</c:issuerEmail>	
+		<c:document>
+		</c:document>
+		<contractingAuthority idRef="1"/>
+		<awardProcedure idRef="1"/>
+		<contractType idRef="2"/>
+		<commissionCriteria idRef="2" />		
+		<secondaryParties>
+			<c:party>
+				<c:name>Δημήτρης Παπαδόπουλος</c:name>
+				<c:afm>023928277</c:afm>
+				<c:country idRef="GR"/>
+			</c:party>
+		</secondaryParties>
+
+		<contractItems>
+			<c:item>
+				<c:quantity>1</c:quantity>
+				<c:unitOfMeasure idRef="C62"/>
+				<c:cost>
+						<c:costBeforeVat>12399</c:costBeforeVat>
+						<c:vatPercentage>23</c:vatPercentage>
+						<c:currency idRef="EUR"/>
+				</c:cost>
+				<c:cpvCodes>
+					<c:cpv>AA01-1</c:cpv>
+					<c:cpv>98393000-4</c:cpv>
+				</c:cpvCodes>
+				<c:kaeCodes>
+					<c:kae>kAA01-1</c:kae>
+					<c:kae>k98393000-4</c:kae>
+				</c:kaeCodes>								
+				<c:description>Αμοιβή</c:description>
+			</c:item>
+		</contractItems>
+
+		<since>2011-01-26</since>
+		<until>2011-03-30</until>
+		<contractPlace>contractPlaceTest8</contractPlace>
+		<coFunded>false</coFunded>
+		<fundedFromPIP>false</fundedFromPIP>
+		<codeCoFunded></codeCoFunded>
+		<codePIP></codePIP>			
+	</contract>
+
+</contracts>
+

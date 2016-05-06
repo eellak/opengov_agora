@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="1.0"
+	targetNamespace="http://agora.opengov.gr/schema/common-0.1" xmlns:tns="http://agora.opengov.gr/schema/common-0.1"
+	xmlns:xmime="http://www.w3.org/2005/05/xmlmime" elementFormDefault="qualified">
+
+	<xs:annotation>
+		<xs:appinfo>
+			<jaxb:globalBindings>
+				<jaxb:javaType name="java.util.Calendar" xmlType="xs:date"
+					parseMethod="javax.xml.bind.DatatypeConverter.parseDate"
+					printMethod="javax.xml.bind.DatatypeConverter.printDate" />
+				<jaxb:javaType name="java.util.Calendar" xmlType="xs:dateTime"
+					parseMethod="javax.xml.bind.DatatypeConverter.parseDateTime"
+					printMethod="javax.xml.bind.DatatypeConverter.printDateTime" />
+			</jaxb:globalBindings>
+		</xs:appinfo>
+	</xs:annotation>
+
+	<xs:complexType name="cost">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="CostOXM" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="costBeforeVat" type="xs:double" />
+			<xs:element name="vatPercentage" type="xs:double" />
+			<xs:element name="currency" type="tns:taxonomyReference" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="taxonomyItem">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="TaxonomyItemOXM" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="label" type="xs:string" minOccurs="0" />
+			<xs:element ref="tns:taxonomy" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string" use="required" />
+	</xs:complexType>
+
+	<xs:element name="taxonomy">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="TaxonomyOXM" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="item" type="tns:taxonomyItem"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+			<xs:attribute name="name" type="xs:string" use="optional" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="taxonomyReference">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="TaxonomyReferenceOXM" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:attribute name="idRef" type="xs:string" use="required"/>
+	</xs:complexType>
+	
+	<xs:complexType name="taxonomyReferenceWithOther">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="TaxonomyReferenceWithOtherOXM" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>			
+			<xs:element name="other" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="idRef" type="xs:string" use="optional"/>
+	</xs:complexType>
+
+	<xs:complexType name="diavgeiaTaxonomyReference">
+		<xs:sequence>
+			<xs:element name="label" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+		<xs:attribute name="idRef" type="xs:int" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="unitReference">
+		<xs:complexContent>
+			<xs:extension base="tns:diavgeiaTaxonomyReference">
+				<xs:sequence>
+					<xs:element name="signers" type="tns:arrayOfSigners" minOccurs="0" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="arrayOfUnitReferences">
+		<xs:sequence>
+			<xs:element name="unit" type="tns:unitReference" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>	
+
+	<xs:complexType name="organizationReference">
+		<xs:complexContent>
+			<xs:extension base="tns:diavgeiaTaxonomyReference">
+				<xs:sequence>
+					<xs:element name="unit" type="tns:unitReference"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+
+	
+	<xs:complexType name="odaTaxonomyItem">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="OdaTaxonomyItemOXM" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tns:taxonomyItem">
+				<xs:sequence>
+<!-- 					<xs:element name="label" type="xs:string" minOccurs="0" /> -->
+					<xs:element name="latinName" type="xs:string" minOccurs="0" />
+					<xs:element name="signers" type="tns:arrayOfSigners" minOccurs="0" />
+					<xs:element name="units" type="tns:arrayOfUnitReferences" minOccurs="0" />
+					<xs:element name="oda" type="tns:arrayOfSupervisedOda" minOccurs="0" />
+<!-- 					<xs:element ref="tns:odaTaxonomy" minOccurs="0"/> -->
+<!-- 					<xs:element name="oda" type="tns:taxonomy" minOccurs="0"/> -->
+				</xs:sequence>
+			</xs:extension>
+	<!-- 		<xs:attribute name="id" type="xs:string" use="required" /> -->
+	</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="signer">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="SignerOXM" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="firstName" type="xs:string" minOccurs="0" />
+			<xs:element name="lastName" type="xs:string" minOccurs="0" />
+			<xs:element name="active" type="xs:boolean" minOccurs="0" />
+			<xs:element name="title" type="xs:string" minOccurs="0" />
+			<xs:element name="position" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+		<xs:attribute name="uid" type="xs:int" use="required" />
+	</xs:complexType>
+	
+	<xs:complexType name="arrayOfSigners">
+		<xs:sequence>
+			<xs:element name="signer" type="tns:signer" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+<!-- 	<xs:element name="organizationResponse"> -->
+<!-- 		<xs:complexType> -->
+<!-- 			<xs:sequence> -->
+<!-- 				<xs:element name="storageReferences" type="tns:arrayOfDecisionStorageReferences" -->
+<!-- 					minOccurs="0" /> -->
+<!-- 				<xs:element name="validationErrors" type="tns:arrayOfValidationErrors" -->
+<!-- 					minOccurs="0" /> -->
+<!-- 			</xs:sequence> -->
+<!-- 		</xs:complexType> -->
+<!-- 	</xs:element>	 -->
+
+	<xs:complexType name="organization">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="OrganizationOXM"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>		
+			<xs:element name="name" type="xs:string" />
+			<xs:element name="formalName" type="xs:string" minOccurs="0" />
+			<xs:element name="afm" type="xs:string" minOccurs="0" />
+			<xs:element name="address" type="xs:string" minOccurs="0" />
+			<xs:element name="addressNo" type="xs:string" minOccurs="0" />
+			<xs:element name="addressPostal" type="xs:string" minOccurs="0" />
+			<xs:element name="nuts" type="xs:string" minOccurs="0" />
+			<xs:element name="city" type="xs:string" minOccurs="0" />
+			<xs:element name="country" type="xs:string" minOccurs="0" />
+			<xs:element name="organizationType" type="xs:string" />
+		</xs:sequence>	
+		<xs:attribute name="idRef" type="xs:int" use="required" />
+	</xs:complexType>	
+
+	<xs:complexType name="signerReference">
+		<xs:complexContent>
+			<xs:extension base="tns:diavgeiaTaxonomyReference">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="arrayOfSignersReferences">
+		<xs:sequence>
+			<xs:element name="signer" type="tns:signerReference"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="arrayOfSupervisedOda">
+		<xs:sequence>
+			<xs:element name="item" type="tns:odaTaxonomyItem"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>	
+
+	<xs:complexType name="cmsMetadata">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="CmsMetadataOXM" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="userIdRef" type="xs:int" />
+			<xs:element name="submissionTime" type="xs:dateTime" />
+			<xs:element name="lastModifiedTime" type="xs:dateTime" />
+			<xs:element name="deleted" type="xs:boolean" default="false" minOccurs="0" />
+			<xs:element name="deletedReason" type="xs:string" minOccurs="0" />
+			<xs:element name="deletionType" type="tns:taxonomyReference" minOccurs="0"/>
+			<xs:element name="deletedFromUserIdRef" type="xs:int" minOccurs="0" />
+			<xs:element name="deletedTime" type="xs:dateTime" minOccurs="0" />
+			<xs:element name="cancelled" type="xs:boolean" default="false" minOccurs="0" />
+			<xs:element name="cancelledReason" type="xs:string" minOccurs="0" />
+			<xs:element name="cancellationType" type="tns:taxonomyReference" minOccurs="0"/>
+			<xs:element name="cancelledFromUserIdRef" type="xs:int" minOccurs="0" />
+			<xs:element name="cancelledTime" type="xs:dateTime" minOccurs="0" />			
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="cmsEntity">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="CmsEntityOXM" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="cmsMetadata" type="tns:cmsMetadata" minOccurs="0" />
+			<xs:element name="replaces" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string" use="optional" />
+	</xs:complexType>
+
+	<xs:complexType name="ada">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="AdaOXM" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="adaCode" type="xs:string" />
+			<xs:element name="adaType" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="arrayOfAdas">
+		<xs:sequence>
+			<xs:element name="ada" type="tns:ada" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>	
+
+	<xs:complexType name="publicOrganizationDecision">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="PublicOrganizationDecisionOXM" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tns:cmsEntity">
+				<xs:sequence>
+					<xs:element name="title" type="xs:string"/>
+					<xs:element name="uniqueDocumentCode" type="xs:string" />
+					<xs:element name="protocolNumberCode" type="xs:string" />
+					<xs:element name="organization" type="tns:organizationReference" />
+					<xs:element name="signers" type="tns:arrayOfSignersReferences" />
+					<xs:element name="diavgeiaPublished" type="xs:boolean" />
+					<xs:element name="dateSigned" type="xs:date" />
+					<xs:element name="relatedAdas" type="tns:arrayOfAdas" minOccurs="0"/>
+					<xs:element name="issuerEmail" type="xs:string" minOccurs="0"/>
+					<xs:choice minOccurs="0">
+						<xs:element name="document" type="xs:base64Binary" />
+						<xs:element name="documentUrl" type="xs:string" />
+					</xs:choice>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="decisionStorageReference">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="DecisionStorageReferenceOXM" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="uniqueDocumentCodeRef" type="xs:string" />
+			<xs:element name="id" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="arrayOfDecisionStorageReferences">
+		<xs:sequence>
+			<xs:element name="storageReference" type="tns:decisionStorageReference"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="paginationInfo">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="PaginationInfoOXM" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="total" type="xs:int" />
+			<xs:element name="returned" type="xs:int" />
+			<xs:element name="from" type="xs:int" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="validationError">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="ValidationErrorOXM" />
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="field" type="xs:string" />
+			<xs:element name="xpath" type="xs:string" minOccurs="0" />
+			<xs:element name="msg" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="arrayOfValidationErrors">
+		<xs:sequence>
+			<xs:element name="error" type="tns:validationError"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="storeDecisionResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="storageReferences" type="tns:arrayOfDecisionStorageReferences"
+					minOccurs="0" />
+				<xs:element name="validationErrors" type="tns:arrayOfValidationErrors"
+					minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="arrayOfCpvCodes">
+		<xs:sequence>
+			<xs:element name="cpv" type="xs:string" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="arrayOfKaeCodes">
+		<xs:sequence>
+			<xs:element name="kae" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="contractItem">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="ContractItemOXM"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="quantity" type="xs:double" />
+			<xs:element name="unitOfMeasure" type="tns:taxonomyReference"/>
+			<xs:element name="cost" type="tns:cost" />
+			<xs:element name="cpvCodes" type="tns:arrayOfCpvCodes" />
+			<xs:element name="kaeCodes" type="tns:arrayOfKaeCodes" minOccurs="0" />
+			<xs:element name="description" type="xs:string" />
+			<xs:element name="procurementRequest" type="xs:string" minOccurs="0" />
+			<xs:element name="notice" type="xs:string" minOccurs="0" />
+			<xs:element name="contract" type="xs:string" minOccurs="0" />
+			<xs:element name="address" type="xs:string" minOccurs="0" />
+			<xs:element name="addressNo" type="xs:string" minOccurs="0" />
+			<xs:element name="addressPostal" type="xs:string" minOccurs="0" />
+			<xs:element name="nuts" type="xs:string" minOccurs="0" />
+			<xs:element name="city" type="xs:string" minOccurs="0" />
+			<xs:element name="countryOfDelivery" type="tns:taxonomyReference" minOccurs="0" />
+			<xs:element name="countryProduced" type="tns:taxonomyReference" minOccurs="0" />
+			<xs:element name="invoiceNumber" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="arrayOfContractItems">
+		<xs:sequence>
+			<xs:element name="item" type="tns:contractItem" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="contractParty">
+		<xs:annotation>
+			<xs:appinfo>
+				<jaxb:class name="ContractPartyOXM"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" />
+			<xs:element name="afm" type="xs:string" />
+			<xs:element name="country" type="tns:taxonomyReference" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="arrayOfContractParties">
+		<xs:sequence>
+			<xs:element name="party" type="tns:contractParty"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>	
+
+	<xs:complexType name="arrayOfDecisionIds">
+		<xs:sequence>
+			<xs:element name="decision" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>	
+	
+	<xs:element name="getDecisionIdsResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="decisions" type="tns:arrayOfDecisionIds"/>
+				<xs:element name="pagination" type="tns:paginationInfo" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>	
+	</xs:element>	
+	
+	<xs:element name="apiInfo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="build" type="xs:string"/>
+				<xs:element name="buildTime" type="xs:dateTime"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>	

@@ -1,0 +1,36 @@
+catalina.home = /usr/share/tomcat6
+
+# Used for normal operation (mails, storage responses etc.)
+production.baseUrl = http://athena-project.opengov.gr/agora
+production.mail.host = localhost
+production.mail.from = no-reply@agora.gov.gr
+production.mail.from.name = Σύστημα Αυτόματης Ειδοποίησης
+production.mail.prefix = [Agora]
+
+# Used for integration tests
+test.baseUrl = http://localhost:8888/agora
+test.mail.host = localhost
+test.mail.from = no-reply@agora.gov.gr
+test.mail.from.name = Σύστημα Αυτόματης Ειδοποίησης
+test.mail.prefix = [Agora - Test]
+
+# Production database settings are read from the container JNDI resources
+test.db.diavgeia-ro.driver = com.mysql.jdbc.Driver
+test.db.diavgeia-ro.url = jdbc:mysql://localhost/apofaseis?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8
+test.db.diavgeia-ro.username = apofaseis
+test.db.diavgeia-ro.password = apofaseis
+
+test.db.diavgeia-rw.driver = com.mysql.jdbc.Driver
+test.db.diavgeia-rw.url = jdbc:mysql://localhost/apofaseis?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8
+test.db.diavgeia-rw.username = apofaseis
+test.db.diavgeia-rw.password = apofaseis
+
+test.db.agora.driver = com.mysql.jdbc.Driver
+test.db.agora.url = jdbc:mysql://localhost/agora?useUnicode=true&characterEncoding=UTF-8
+test.db.agora.username = agora
+test.db.agora.password = agora
+
+test.db.agora-ro.driver = com.mysql.jdbc.Driver
+test.db.agora-ro.url = jdbc:mysql://localhost/agora_ro?useUnicode=true&characterEncoding=UTF-8
+test.db.agora-ro.username = agora
+test.db.agora-ro.password = agora

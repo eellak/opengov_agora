@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<taxonomy xmlns="http://agora.opengov.gr/schema/common-0.1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	name="test"
+>
+  <item id="EUR">
+    <label>Euro</label>
+  </item>
+  <item id="USD">
+    <label>US Dollar</label>
+  </item> 
+
+</taxonomy>
